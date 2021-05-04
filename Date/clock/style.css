@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(3, 3, 24);
+}
+
+.content_block{
+    background-color: rgb(2, 2, 34);
+    border: 1px solid rgb(190, 201, 226);
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.button{
+    background-color:rgb(2, 2, 34) ;
+    border: 1px solid rgb(190, 201, 226);
+    color: rgb(115, 115, 223);
+    border-radius: 5px;
+}
+
+.plus_minus{
+    background-color:rgb(2, 2, 34) ;
+    border: 1px solid rgb(190, 201, 226);
+    color: rgb(115, 115, 223);
+    border-radius: 5px;
+}
+
+.time_block{
+    background-color:rgb(2, 2, 34) ;
+    border: 1px solid rgb(190, 201, 226);
+    border-radius: 5px;
+}
+
+.clock{
+    color: burlywood;
+}
