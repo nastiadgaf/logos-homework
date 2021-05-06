@@ -1,0 +1,29 @@
+.heading{
+    font-weight: bold;
+    font-size: large;
+}
+
+.text{
+    font-size: medium;
+}
+
+.input{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+}
+
+#button{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    background-color: rgb(52, 194, 52);
+    color: white;
+    font-weight: bold;
+}
+
+#third-input{
+    width: 765px;
+}

@@ -1,0 +1,92 @@
+.forms{
+    width: 20%;
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin: 0 auto;
+}
+
+#top_block{
+     background-color: rgb(61, 194, 112);
+     color: white;
+     text-align: center;
+     font-weight: bold;
+     font-size: large;
+     height: 30px;
+}
+
+.text{
+    color: rgb(17, 17, 17);
+    font-size: large;
+}
+.input{
+    width: 80%;
+    height: 10%;
+    border: 1px solid grey;
+    border-radius: 5px;
+
+}
+
+#select{
+    width: 80%;
+}
+
+#signUp{
+    background-color: rgb(61, 194, 112);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.top_green{
+    width: 100%;
+    height: 50px;
+    background-color:rgb(61, 194, 112);
+}
+
+.image{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-left: 30%;
+}
+
+.name{
+    text-align: center;
+}
+
+.email{
+    text-align: center;
+}
+
+.proffesion{
+    text-align: center;
+}
+
+#signOut{
+    border: 1px solid rgb(61, 194, 112);
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(41, 102, 64);
+    margin-left: 30%;
+    width: 100px;
+    height: 30px;
+}
+
+.bottom_green{
+    width: 100%;
+    height: 30px;
+    background-color:rgb(61, 194, 112);
+    margin-top: 10px;
+}
+/*
+#form2{
+    display: none;
+}
+
+#form3{
+    display: none;
+}*/
