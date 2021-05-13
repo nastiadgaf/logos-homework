@@ -3,6 +3,7 @@
     border-radius: 5px;
     border: 1px solid grey;
     margin: 0 auto;
+    background-color: rgb(185, 238, 178);
 }
 
 #top_block{
@@ -82,11 +83,18 @@
     background-color:rgb(61, 194, 112);
     margin-top: 10px;
 }
-/*
-#form2{
+#woman_img{
     display: none;
 }
 
-#form3{
+#man_img{
     display: none;
-}*/
+}
+
+#form1{
+    display: block;
+}
+
+#form2{
+    display: none;
+}

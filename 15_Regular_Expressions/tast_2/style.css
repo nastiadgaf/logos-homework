@@ -1,0 +1,16 @@
+
+body{
+    display: flex;
+    justify-content: space-around;
+}
+
+tr{
+    display: flex;
+    justify-content: space-around;
+}
+
+.iksweb{
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+
+}

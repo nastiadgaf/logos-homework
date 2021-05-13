@@ -1,5 +1,7 @@
 body{
     background-color: rgb(3, 3, 24);
+    color: white;
+    font-size:medium;
 }
 
 .content_block{

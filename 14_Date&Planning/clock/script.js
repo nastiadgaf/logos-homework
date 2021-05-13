@@ -46,4 +46,3 @@ getTodayDate();
 getTime();
 setInterval(getTime, 1000);
 
-let watch = document.querySelector('#watch');
