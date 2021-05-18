@@ -1,38 +1,47 @@
+@font-face{
+    font-family: Gasrux;
+    src: url(font.otf);
+}
 body{
     background-color: rgb(3, 3, 24);
-    color: white;
+    color: rgb(63, 88, 148);
     font-size:medium;
+    font-family: Gasrux;
 }
 
 .content_block{
     background-color: rgb(2, 2, 34);
-    border: 1px solid rgb(190, 201, 226);
-    margin-top: 100px;
+    border: 1px solid rgb(63, 88, 148);
+    margin-top: 2%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    font-size: large;
+    padding-bottom: 10px ;
+    padding-top: 10px ;
 }
-
 .button{
     background-color:rgb(2, 2, 34) ;
-    border: 1px solid rgb(190, 201, 226);
+    border: 1px solid rgb(63, 88, 148);
     color: rgb(115, 115, 223);
-    border-radius: 5px;
+    border-radius: 35px;
+    width: 60px;
+    height: 60px;
 }
 
 .plus_minus{
     background-color:rgb(2, 2, 34) ;
-    border: 1px solid rgb(190, 201, 226);
+    border: 1px solid rgb(63, 88, 148);
     color: rgb(115, 115, 223);
-    border-radius: 5px;
+    border-radius: 35px;
+    width: 60px;
+    height: 60px;
 }
 
 .time_block{
     background-color:rgb(2, 2, 34) ;
-    border: 1px solid rgb(190, 201, 226);
+    border: 1px solid rgb(63, 88, 148);
     border-radius: 5px;
-}
-
-.clock{
-    color: burlywood;
+    width: 20%;
+    
 }

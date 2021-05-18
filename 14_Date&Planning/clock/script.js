@@ -1,4 +1,5 @@
-let clock = document.querySelector('#clock');
+
+    let clock = document.querySelector('#clock');
 let date = document.querySelector('#date');
 
 function getTime(){
@@ -45,4 +46,6 @@ function getTodayDate(){
 getTodayDate();
 getTime();
 setInterval(getTime, 1000);
+
+
 

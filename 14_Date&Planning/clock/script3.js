@@ -1,3 +1,4 @@
+
 let timer = document.querySelector('#timer_time');
 let plus = document.querySelector('#plus');
 let minus = document.querySelector('#minus');
@@ -17,16 +18,16 @@ minus.addEventListener('click', function(){
         timer.innerHTML--;
     }
 })
-
+let timerWork;
 startTimer.addEventListener('click', function(){
     let m = timer.innerHTML;
     let s = 0;
     function getTimerTime(){
         timerClock.innerHTML = m +" : " + s ;
-   /* if ( m == 0 && s == 0){
+    if ( m == 0 && s == 0){
             alert('timer is over');
             clearInterval(timerWork);
-        } */
+        } 
     if(s == 0){
         m--;
         s = 60;
@@ -36,8 +37,12 @@ startTimer.addEventListener('click', function(){
         }
     s--;
     }
-    let timerWork = setInterval( getTimerTime ,1000);
+    if( s > 1){
+        s--;
+    }
+    timerWork = setInterval( getTimerTime ,1000);
 })
+
 
 resetTimer.addEventListener('click', function(){
     timerClock.innerHTML = '00:00';
