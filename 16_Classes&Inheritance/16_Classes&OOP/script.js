@@ -19,5 +19,5 @@ class Employee {
     tom.salary = tom.getSalary();
 
 console.log(jack.salary); // 11000
-console.log(tom.salary); // 2500
+console.log(tom.salary); // 2500 
 //console.log(Employee.getGeneralSum()); // 13500
