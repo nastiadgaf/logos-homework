@@ -113,6 +113,9 @@ body{
     font-size: 20px;
     font-family:  'Truetypewriter PolyglOTT';
 }
+#signUp:hover{
+    background-color: grey;
+}
 #signOut:hover{
     background-color: rgb(61, 194, 112);
     color:black;

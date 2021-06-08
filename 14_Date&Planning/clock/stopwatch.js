@@ -1,5 +1,3 @@
-
-
 let watch = document.querySelector('#watch');
 let start = document.querySelector('#start');
 let loop = document.querySelector('#loop');
@@ -12,11 +10,11 @@ let secondsWork;
     let minutes;
     let second;
     let ms;
-start.addEventListener('click', function(){
     hours = '0';
     minutes = '0';
     second = '0';
     ms = '0';
+start.addEventListener('click', function(){
     hours.toString();
     minutes.toString();
     second.toString();
@@ -37,14 +35,14 @@ start.addEventListener('click', function(){
         minutes = 0;
     }
     ms++;
-    if(hours.length < 2){
+    if(hours.toString().length < 2){
         hours = '0' + hours;
     }
 
-    if(minutes.length < 2){
+    if(minutes.toString().length < 2){
         minutes = '0' + minutes;
     }
-    if(second.length < 2){
+    if(second.toString().length < 2){
         second = '0' + second;
     }
 
@@ -56,6 +54,10 @@ reset.addEventListener('click', function(){
     watch.innerHTML = '00:00:00:000';
     timeBlockText.textContent = '';
     clearInterval(secondsWork);
+    hours = '0';
+    minutes = '0';
+    second = '0';
+    ms = '0';
    
 });
 

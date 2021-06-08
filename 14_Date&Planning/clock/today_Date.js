@@ -1,5 +1,4 @@
-
-    let clock = document.querySelector('#clock');
+let clock = document.querySelector('#clock');
 let date = document.querySelector('#date');
 
 function getTime(){
@@ -21,6 +20,9 @@ function getTime(){
     }
 
     let clockString = h + ':' + m + ':' + s;
+    if(h == '00' && m == '00' && s == '00'){
+        getTodayDate();
+    }
     clock.textContent = clockString;
 };
 
