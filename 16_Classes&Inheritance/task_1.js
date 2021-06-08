@@ -24,7 +24,7 @@ class CoffeeMachine{
 const myCoffeeMachine = new CoffeeMachine('Ingrid',20);
 console.log(myCoffeeMachine.name); // Ingrid
 console.log(myCoffeeMachine.power); // 20
-myCoffeeMachine.on(); // Ingrid power on
+myCoffeeMachine.on(); // Ingrid power on 
 myCoffeeMachine.power.setPower(70);
 myCoffeeMachine.makeCoffee(); 
 /*(after 2 seconds) Cup of coffee strength in 70*/

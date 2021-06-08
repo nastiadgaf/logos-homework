@@ -19,6 +19,6 @@ class CoffeeMachine{
 
 const espressoMachine = new CoffeeMachine ('Emma', 35, 'espresso');
 
-espressoMachine.on();
+espressoMachine.on(); 
 espressoMachine.makeCoffee();
 myCoffeMachine.off();
