@@ -8,12 +8,11 @@ class CoffeeMachine{
         console.log(this.name + ' power on');
     }
     makeCoffee(){
-            console.log('Cup of ' + this.coffeeName);  
-            //setTimeout(makeCoffee, 2000);
+            setTimeout(() => console.log('Cup of ' + this.coffeeName), 2000);
     }
     
     off(){
-        console.log(this.name + '  power off');
+        setTimeout(() => console.log(this.name + '  power off'), 3000);
     }
 }
 
@@ -21,4 +20,4 @@ const espressoMachine = new CoffeeMachine ('Emma', 35, 'espresso');
 
 espressoMachine.on(); 
 espressoMachine.makeCoffee();
-myCoffeMachine.off();
+espressoMachine.off();

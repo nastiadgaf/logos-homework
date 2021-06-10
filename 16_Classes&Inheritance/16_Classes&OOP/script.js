@@ -6,11 +6,14 @@ class Employee {
         this.rate = r;
         this.days = d;
     }
-
+   
     getSalary(){
-        return this.rate * this.days;
+        let  salary = 0;
+        return salary = this.rate * this.days;
     }
-
+    static getGeneralSum(user1, user2){
+       return user1.salary + user2.salary;
+    }
 };
 
     const jack = new Employee('Jack Shepard', 500, 22);
@@ -20,4 +23,4 @@ class Employee {
 
 console.log(jack.salary); // 11000
 console.log(tom.salary); // 2500 
-//console.log(Employee.getGeneralSum()); // 13500
+console.log(Employee.getGeneralSum(jack,tom)); // 13500
