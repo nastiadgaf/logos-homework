@@ -7,13 +7,18 @@ class Employee {
         // console.log(Employee.employeesList);
     }
     static employeesList = [];
+    allSalary  = [];
     getSalary() {
-        return this.rate * this.days;
+        let salary;
+        return salary = this.rate * this.days;
+        allSalary =+ salary;
+        
     }
-
+    
+    
     static getGeneralSum() {
         let generalSum = 0;
-        for (let salary of Employee.employeesList.getSalary()) {
+        for (let salary of Employee.employeesList.allSalary) {
             generalSum += salary;
         }
         return generalSum;
