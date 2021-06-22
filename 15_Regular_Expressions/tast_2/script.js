@@ -7,18 +7,21 @@ let userPassord = document.querySelector('#user_password');
 let editButton = document.querySelector('#edit');
 let deleteButton = document.querySelector('#delete');
 let submitButton = document.querySelector('#submit');
-let tr = document.createElement('tr');
-class User{
-    сonstructor(login, password, email){
+let tdMain = document.querySelector('.td-main');
+let tr = document.createElement('div');
+class User {
+    сonstructor(login, password, email) {
         this.login = login;
         this.password = password;
         this.email = email;
     }
-   
-  
+
+
 }
 
-submitButton.addEventListener('click', function(){
-    tr.innerHeight = login.value;
-   // userLogin.textContent = login.value;
+submitButton.addEventListener('click', function () {
+    tr.classList.add('tr-new');
+    tdMain.append(tr);
+    // tr.innerHeight = login.value;
+    tr.innerHTML = login.value;
 });
