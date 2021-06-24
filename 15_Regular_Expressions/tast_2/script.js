@@ -16,8 +16,12 @@ class User {
         this.email = email;
     }
 
+    createRow() {
 
+    }
 }
+
+// Сделать отдельную функцию
 let tr = document.createElement('div');
 tr.classList.add('tr-new');
 let editButton = document.createElement('button');
@@ -82,6 +86,7 @@ submitButton.addEventListener('click', function () {
     checkName();
     checkEmail();
     checkPassword();
+    let userObj = new User(login.value);
 });
 
 editButton.addEventListener('click', function () {
