@@ -19,6 +19,7 @@ class User {
         let td = document.createElement('td');
         td.classList.add('td');
 
+<<<<<<< HEAD
         let tr = document.createElement('tr');
         tr.classList.add('tr-new');
         let trPassword = document.createElement('tr');
@@ -33,6 +34,26 @@ class User {
         deleteButton.classList.add('delete_button');
         deleteButton.textContent = 'Delete';
     }
+=======
+    createRow() {
+
+    }
+}
+
+// Сделать отдельную функцию
+let tr = document.createElement('div');
+tr.classList.add('tr-new');
+let editButton = document.createElement('button');
+editButton.classList.add('edit_button');
+editButton.textContent = 'Edit';
+let deleteButton = document.createElement('button');
+deleteButton.classList.add('delete_button');
+deleteButton.textContent = 'Delete';
+let tdPassword = document.createElement('div');
+tdPassword.classList.add('values');
+let tdEmail = document.createElement('div');
+tdEmail.classList.add('values');
+>>>>>>> 5cc37f0fe12798cbac0ba6daad7ef6364e24c2b3
 
     createUserInfo() {
         this.login = this.td.append.this.tr.textContent;
@@ -53,10 +74,17 @@ class User {
 
 
 submitButton.addEventListener('click', function () {
+<<<<<<< HEAD
     let userObj = new User(login.value, password.value, email.value);
     userObj.createUserRow();
     userObj.createUserInfo();
     userObj.addButton();
+=======
+    checkName();
+    checkEmail();
+    checkPassword();
+    let userObj = new User(login.value);
+>>>>>>> 5cc37f0fe12798cbac0ba6daad7ef6364e24c2b3
 });
 
 editButton.addEventListener('click', function () {
