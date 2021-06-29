@@ -15,85 +15,60 @@ class User {
         this.password = password;
         this.email = email;
     }
+    createUserRow() {
+        let td = document.createElement('td');
+        td.classList.add('td');
 
+        let tr = document.createElement('tr');
+        tr.classList.add('tr-new');
+        let trPassword = document.createElement('tr');
+        trPassword.classList.add('values');
+        let trEmail = document.createElement('tr');
+        trEmail.classList.add('values');
 
-}
-let tr = document.createElement('div');
-tr.classList.add('tr-new');
-let editButton = document.createElement('button');
-editButton.classList.add('edit_button');
-editButton.textContent = 'Edit';
-let deleteButton = document.createElement('button');
-deleteButton.classList.add('delete_button');
-deleteButton.textContent = 'Delete';
-let tdPassword = document.createElement('div');
-tdPassword.classList.add('values');
-let tdEmail = document.createElement('div');
-tdEmail.classList.add('values');
+        let editButton = document.createElement('button');
+        editButton.classList.add('edit_button');
+        editButton.textContent = 'Edit';
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete_button');
+        deleteButton.textContent = 'Delete';
+    }
 
-function addButton() {
-    tdMain.append(editButton);
-    tdMain.append(deleteButton);
-    login.value = '';
-    password.value = '';
-    email.value = '';
-}
+    createUserInfo() {
+        this.login = this.td.append.this.tr.textContent;
+        this.password = this.td.append.this.trPassword.textContent;
+        this.login = this.td.append.this.trEmail.textContent;
+    }
 
-function checkName() {
-    let regexp = /[a-zA-Z]{1,20}$/;
-    let val = login.value;
-    if (!val.match(regexp)) {
-        login.style.border = '3px solid red';
-    } else {
-        tdMain.append(tr);
-        tr.innerHTML = login.value;
-        login.style.border = '1px solid black';
-        addButton();
+    addButton() {
+        td.append(editButton);
+        td.append(deleteButton);
+        login.value = '';
+        password.value = '';
+        email.value = '';
     }
 }
 
-function checkPassword() {
-    let regexp2 = /(?=.*[0-9])(?=.*[a-z_])(?=.*[A-Z]){8,15}/g;
-    let val2 = password.value;
-    if (!val2.match(regexp2)) {
-        password.style.border = '3px solid red';
-    } else {
-        tdMain.append(tdPassword);
-        tdPassword.innerHTML = password.value;
-        password.style.border = '1px solid black';
-        addButton();
-    }
-};
 
-function checkEmail() {
-    let regexp3 = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
-    let val3 = email.value;
-    if (!val3.match(regexp3)) {
-        email.style.border = '3px solid red';
-    } else {
-        tdMain.append(tdEmail);
-        tdEmail.innerHTML = email.value;
-        email.style.border = '1px solid black';
-        addButton();
-    }
-};
+
 
 submitButton.addEventListener('click', function () {
-    checkName();
-    checkEmail();
-    checkPassword();
+    let userObj = new User(login.value, password.value, email.value);
+    userObj.createUserRow();
+    userObj.createUserInfo();
+    userObj.addButton();
 });
 
 editButton.addEventListener('click', function () {
     login.value = tr.innerHTML;
-    password.value = tdPassword.innerHTML;
-    email.value = tdEmail.innerHTML;
+    password.value = trPassword.innerHTML;
+    email.value = trEmail.innerHTML;
 })
 
 deleteButton.addEventListener('click', function () {
     tr.innerHTML = '';
-    tdPassword.innerHTML = '';
-    tdEmail.innerHTML = '';
+    trPassword.innerHTML = '';
+    trEmail.innerHTML = '';
     editButton.style.display = 'none';
     deleteButton.style.display = 'none';
 })
