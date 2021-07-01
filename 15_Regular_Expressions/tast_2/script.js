@@ -16,87 +16,62 @@ class User {
         this.email = email;
     }
     createUserRow() {
-        let td = document.createElement('td');
-        td.classList.add('td');
+        let userRow = document.createElement('tr');
+        userRow.classList.add('tr_user');
+        this.row = userRow;
 
-<<<<<<< HEAD
-        let tr = document.createElement('tr');
-        tr.classList.add('tr-new');
-        let trPassword = document.createElement('tr');
-        trPassword.classList.add('values');
-        let trEmail = document.createElement('tr');
-        trEmail.classList.add('values');
+        let userCell = document.createElement('td');
+        userCell.classList.add('cell');
+        userCell.textContent = this.login;
+        userRow.append(userCell);
+
+        let passwordCell = document.createElement('td');
+        passwordCell.classList.add('cell');
+        passwordCell.textContent = this.password;
+        userRow.append(passwordCell);
+
+        let emailCell = document.createElement('td');
+        emailCell.classList.add('cell');
+        emailCell.textContent = this.email;
+        userRow.append(emailCell);
 
         let editButton = document.createElement('button');
         editButton.classList.add('edit_button');
         editButton.textContent = 'Edit';
+        userRow.append(editButton);
+
         let deleteButton = document.createElement('button');
         deleteButton.classList.add('delete_button');
         deleteButton.textContent = 'Delete';
+        userRow.append(deleteButton);
+
+        submitButton.classList.add('submit_button');
     }
-=======
-    createRow() {
-
-    }
-}
-
-// Сделать отдельную функцию
-let tr = document.createElement('div');
-tr.classList.add('tr-new');
-let editButton = document.createElement('button');
-editButton.classList.add('edit_button');
-editButton.textContent = 'Edit';
-let deleteButton = document.createElement('button');
-deleteButton.classList.add('delete_button');
-deleteButton.textContent = 'Delete';
-let tdPassword = document.createElement('div');
-tdPassword.classList.add('values');
-let tdEmail = document.createElement('div');
-tdEmail.classList.add('values');
->>>>>>> 5cc37f0fe12798cbac0ba6daad7ef6364e24c2b3
-
-    createUserInfo() {
-        this.login = this.td.append.this.tr.textContent;
-        this.password = this.td.append.this.trPassword.textContent;
-        this.login = this.td.append.this.trEmail.textContent;
-    }
-
-    addButton() {
-        td.append(editButton);
-        td.append(deleteButton);
+    clearInputs() {
         login.value = '';
         password.value = '';
         email.value = '';
     }
 }
 
-
-
-
-submitButton.addEventListener('click', function () {
-<<<<<<< HEAD
-    let userObj = new User(login.value, password.value, email.value);
-    userObj.createUserRow();
-    userObj.createUserInfo();
-    userObj.addButton();
-=======
-    checkName();
-    checkEmail();
-    checkPassword();
-    let userObj = new User(login.value);
->>>>>>> 5cc37f0fe12798cbac0ba6daad7ef6364e24c2b3
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('submit_button')) {
+        let userObj = new User(login.value, password.value, email.value);
+        userObj.createUserRow();
+        userObj.clearInputs();
+    };
 });
 
-editButton.addEventListener('click', function () {
-    login.value = tr.innerHTML;
-    password.value = trPassword.innerHTML;
-    email.value = trEmail.innerHTML;
-})
+// editButton.addEventListener('click', function () {
+//     login.value = tr.innerHTML;
+//     password.value = trPassword.innerHTML;
+//     email.value = trEmail.innerHTML;
+// })
 
-deleteButton.addEventListener('click', function () {
-    tr.innerHTML = '';
-    trPassword.innerHTML = '';
-    trEmail.innerHTML = '';
-    editButton.style.display = 'none';
-    deleteButton.style.display = 'none';
-})
+// deleteButton.addEventListener('click', function () {
+//     tr.innerHTML = '';
+//     trPassword.innerHTML = '';
+//     trEmail.innerHTML = '';
+//     editButton.style.display = 'none';
+//     deleteButton.style.display = 'none';
+// })

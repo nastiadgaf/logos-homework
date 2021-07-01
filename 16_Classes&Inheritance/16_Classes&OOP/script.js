@@ -28,9 +28,7 @@ class SecretOfficer extends Employee {
         this.fullName = fullName;
         this.rate = rate;
         this.days = days;
-    }
-    getSalary2() {
-        super.getSalary();
+        Employee.employeesList.pop(this);
     }
 }
 
