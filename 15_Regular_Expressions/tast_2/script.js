@@ -9,6 +9,7 @@ let deleteUser = document.querySelector('#delete');
 let submitButton = document.querySelector('#submit');
 let tdMain = document.querySelector('.td-main');
 
+
 class User {
     сonstructor(login, password, email) {
         this.login = login;
@@ -27,12 +28,12 @@ class User {
 
         let passwordCell = document.createElement('td');
         passwordCell.classList.add('cell');
-        passwordCell.textContent = this.password;
+        passwordCell.innerHTML = this.password;
         userRow.append(passwordCell);
 
         let emailCell = document.createElement('td');
         emailCell.classList.add('cell');
-        emailCell.textContent = this.email;
+        emailCell.innerHTML = this.email;
         userRow.append(emailCell);
 
         let editButton = document.createElement('button');
@@ -45,12 +46,19 @@ class User {
         deleteButton.textContent = 'Delete';
         userRow.append(deleteButton);
 
+        tdMain.append(userRow);
         submitButton.classList.add('submit_button');
     }
     clearInputs() {
         login.value = '';
         password.value = '';
         email.value = '';
+    }
+
+    editUser() {
+        login.value = this.login;
+        password.value = this.password;
+        email.value = this.email;
     }
 }
 
@@ -59,7 +67,13 @@ document.addEventListener('click', function (e) {
         let userObj = new User(login.value, password.value, email.value);
         userObj.createUserRow();
         userObj.clearInputs();
+        console.log(userObj);
     };
+
+    if (e.target.classList.contains('edit_button')) {
+        userObj.editUser();
+    };
+
 });
 
 // editButton.addEventListener('click', function () {

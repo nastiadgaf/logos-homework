@@ -1,6 +1,6 @@
 let name = document.querySelector('#name')
 let surname = document.querySelector('#surname')
-let signUp = document.querySelector('#signUp');
+let signUp = document.querySelector('.signUp');
 let signOut = document.querySelector('#signOut');
 let userName = document.querySelector('.name');
 let email = document.querySelector('.email');
@@ -13,54 +13,57 @@ let proffesion = document.querySelector('.proffesion');
 let agrement = document.querySelector('#agrement');
 let form1 = document.querySelector('#form1');
 let form2 = document.querySelector('#form2');
-
+let imageClass = document.querySelector('.image');
 signUp.setAttribute('disabled', true);
 
-form1.onchange = function(){
-    if(name.value.length < 1 ){
-        signUp.setAttribute('disabled', true);
-    } else if (surname.value.length < 1){
-        signUp.setAttribute('disabled', true);
-    } else if (emailInput.value.length < 1){
-        signUp.setAttribute('disabled', true);
-    } else if(radio[0].checked === false && radio[1].checked === false ){
-        signUp.setAttribute('disabled', true);
-    } else if(select[1].selected === false && select[2].selected === false &&  select[3].selected === false){
-        signUp.setAttribute('disabled', true);
-    } else if(agrement.checked === false){
-        signUp.setAttribute('disabled', true);
-    } else{
-        signUp.removeAttribute('disabled');
-        signUp.style.backgroundColor = 'rgb(15, 161, 71)';
-        signUp.style.border = '1px solid green'
+function checkForm() {
+    if (name.value.length < 1 || surname.value.length < 1 || emailInput.value.length < 1) {
+        return false;
+    } else if (radio[0].checked === false && radio[1].checked === false) {
+        return false;
+    } else if (select[1].selected === false && select[2].selected === false && select[3].selected === false) {
+        return false;
+    } else if (agrement.checked === false) {
+        return false;
+    } else {
+        return true;
     }
 }
-    
-signUp.addEventListener('click', function(){
-        if(name.value && surname.value && emailInput.value){
-            userName.textContent = name.value + ' ' + surname.value;
-            email.textContent = emailInput.value;
-        }; 
-    
-        if(radio[0].checked){
-            manImg.style.display = "flex";
-            womanImg.style.display = "none";
-        } else if ( radio[1].checked){
-            womanImg.style.display = "flex";
-            manImg.style.display = "none";
+form1.onchange = function () {
+    if (checkForm(true)) {
+        signUp.removeAttribute('disabled');
+        signUp.classList.add('signUpTrue');
+        signUp.classList.remove('signUp');
+    } else {
+        signUp.setAttribute('disabled', true);
+    }
+
+
+}
+
+signUp.addEventListener('click', function () {
+    if (name.value && surname.value && emailInput.value) {
+        userName.textContent = name.value + ' ' + surname.value;
+        email.textContent = emailInput.value;
+    };
+
+    if (radio[0].checked) {
+        imageClass.style.backgroundImage = 'url("img/Без названия (1).jfif")';
+    } else if (radio[1].checked) {
+        imageClass.style.backgroundImage = 'url("img/Без названия.jfif")';
+    }
+
+    for (let i = 0; i < select.length; i++) {
+        if (select[i].selected) {
+            proffesion.textContent = select[i].value;
+            break;
         }
-    
-        for( let i = 0; i < select.length; i++ ){
-             if(select[i].selected){
-                 proffesion.textContent = select[i].value;
-                 break;
-             } 
-         }
-            form1.style.display = "none";
-            form2.style.display = "block";
+    }
+    form1.style.display = "none";
+    form2.style.display = "block";
 });
 
-signOut.addEventListener('click', function(){
+signOut.addEventListener('click', function () {
     form2.style.display = "none";
     form1.style.display = "block";
     name.value = '';
@@ -71,6 +74,6 @@ signOut.addEventListener('click', function(){
     select[0].selected = true;
     agrement.checked = false;
     signUp.setAttribute('disabled', true);
-    signUp.style.backgroundColor = 'rgb(61, 194, 112)';
-    signUp.style.border = '1px solid green'
+    signUp.classList.add('signUpTrue');
+    signUp.classList.remove('signUp');
 })

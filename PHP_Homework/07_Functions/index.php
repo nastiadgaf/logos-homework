@@ -9,4 +9,4 @@ function reverseNumber($num)
     }
 }
 
-reverseNumber(10010);
+reverseNumber(123);
