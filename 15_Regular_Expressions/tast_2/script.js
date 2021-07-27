@@ -1,25 +1,31 @@
-let login = document.querySelector('#login');
-let password = document.querySelector('#password');
-let email = document.querySelector('#email');
-let number = document.querySelector('#number');
-let userLogin = document.querySelector('#user_login');
-let userPassord = document.querySelector('#user_password');
-let edit = document.querySelector('#edit');
-let deleteUser = document.querySelector('#delete');
-let submitButton = document.querySelector('#submit');
 let tdMain = document.querySelector('.td-main');
-
-
+let submitButton = document.querySelector('#submit');
+let userLogin = document.querySelector('#login');
+let userPassword = document.querySelector('#password');
+let userEmail = document.querySelector('#email');
+let modal = document.querySelector('#myModal');
+let closeButton = document.querySelector('.close');
+let question = document.querySelector('.question');
+question.classList.add('question_hide');
 class User {
-    сonstructor(login, password, email) {
+    constructor(login, password, email) {
         this.login = login;
         this.password = password;
         this.email = email;
+        User.userList.push(this);
     }
+
+    static userList = [];
+
     createUserRow() {
         let userRow = document.createElement('tr');
         userRow.classList.add('tr_user');
         this.row = userRow;
+
+        let userLists = document.createElement('td');
+        userLists.classList.add('cell');
+        userLists.innerHTML = this.constructor.getGeneralUsers();
+        userRow.append(userLists);
 
         let userCell = document.createElement('td');
         userCell.classList.add('cell');
@@ -28,12 +34,12 @@ class User {
 
         let passwordCell = document.createElement('td');
         passwordCell.classList.add('cell');
-        passwordCell.innerHTML = this.password;
+        passwordCell.textContent = this.password;
         userRow.append(passwordCell);
 
         let emailCell = document.createElement('td');
         emailCell.classList.add('cell');
-        emailCell.innerHTML = this.email;
+        emailCell.textContent = this.email;
         userRow.append(emailCell);
 
         let editButton = document.createElement('button');
@@ -49,43 +55,91 @@ class User {
         tdMain.append(userRow);
         submitButton.classList.add('submit_button');
     }
+
+    static getGeneralUsers() {
+        let list = this.userList.length;
+        return list;
+    }
+
     clearInputs() {
         login.value = '';
         password.value = '';
         email.value = '';
     }
 
+    checkLogin() {
+        let regexp = /[a-zA-Z]{1,20}$/;
+        let val = this.login;
+        if (!val.match(regexp)) {
+            userLogin.classList.add('wrong');
+        } else {
+            userLogin.classList.remove('wrong');
+            return true;
+        }
+    }
+    checkPassword() {
+        let regexp2 = /(?=.*[0-9])(?=.*[a-z_])(?=.*[A-Z]){8,15}/g;
+        let val2 = this.password;
+        if (!val2.match(regexp2)) {
+            userPassword.classList.add('wrong');
+        } else {
+            userPassword.classList.remove('wrong');
+            return true;
+        }
+    }
+    checkEmail() {
+        let regexp3 = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+        let val3 = this.email;
+        if (!val3.match(regexp3)) {
+            userEmail.classList.add('wrong');
+        } else {
+            userEmail.classList.remove('wrong');
+            return true;
+        }
+    }
+    check() {
+        this.checkLogin();
+        this.checkPassword();
+        this.checkEmail();
+        if (this.checkLogin() && this.checkPassword() && this.checkEmail()) {
+            this.createUserRow();
+            question.classList.add('question_hide');
+            question.classList.remove('question_show');
+            this.clearInputs();
+        } else {
+            User.userList.pop(this);
+            question.classList.remove('question_hide');
+            question.classList.add('question_show');
+        }
+    }
+
+
     editUser() {
-        login.value = this.login;
-        password.value = this.password;
-        email.value = this.email;
+        userLogin.value = this.login;
+        userPassword.value = this.password;
+        userEmail.value = this.email;
+    }
+
+    deleteUser() {
+        delete this.userObj;
     }
 }
+
+
 
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('submit_button')) {
         let userObj = new User(login.value, password.value, email.value);
-        userObj.createUserRow();
-        userObj.clearInputs();
-        console.log(userObj);
-    };
-
-    if (e.target.classList.contains('edit_button')) {
-        userObj.editUser();
-    };
+        userObj.check();
+    } else if (e.target.classList.contains('edit_button')) {
+        new User().editUser();
+    } else if (e.target.classList.contains('delete_button')) {
+        this.userObj.deleteUser();
+    } else if (e.target.classList.contains('close')) {
+        modal.classList.add('hide');
+    } else if (e.target.classList.contains('question')) {
+        modal.classList.remove('hide');
+        modal.classList.add('show');
+    }
 
 });
-
-// editButton.addEventListener('click', function () {
-//     login.value = tr.innerHTML;
-//     password.value = trPassword.innerHTML;
-//     email.value = trEmail.innerHTML;
-// })
-
-// deleteButton.addEventListener('click', function () {
-//     tr.innerHTML = '';
-//     trPassword.innerHTML = '';
-//     trEmail.innerHTML = '';
-//     editButton.style.display = 'none';
-//     deleteButton.style.display = 'none';
-// })

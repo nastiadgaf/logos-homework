@@ -1,25 +1,18 @@
 <?php
-$array = array(
-	'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-	's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-);
+$string  = 'zzzab';
+$letters = str_split($string);
+$previous = [];
 
-
- $str = 'aa';
-
-$arr = str_split($str);
-$last;
-foreach($arr as $i){
-    global $last;
-    $last = $i;
-        if ($i === $last){
-            print_r($last);
+foreach($letters as $letter) {
+    array_push($previous, $letter);
+  //print_r($previous);
+    }
+    foreach($previous as $i){
+        if($letter == $i) {
+            ++$letter;
+            print_r($letter);
+        } else {
+            print_r($letter);
         }
+    
 }
-
-function nextLetter(&$str) {
-    $str = ('z' === $str ? 'a' : ++$str);
-    print_r($str);
-   }
-
-   nextLetter($str);

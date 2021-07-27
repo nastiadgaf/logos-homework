@@ -1,7 +1,7 @@
 let name = document.querySelector('#name')
 let surname = document.querySelector('#surname')
-let signUp = document.querySelector('.signUp');
-let signOut = document.querySelector('#signOut');
+let signUp = document.querySelector('.sign-up');
+let signOut = document.querySelector('#sign-out');
 let userName = document.querySelector('.name');
 let email = document.querySelector('.email');
 let emailInput = document.querySelector('#email_input');
@@ -12,46 +12,17 @@ let select = document.querySelector('#select');
 let proffesion = document.querySelector('.proffesion');
 let agrement = document.querySelector('#agrement');
 let form1 = document.querySelector('#form1');
-let form2 = document.querySelector('#form2');
+let form2 = document.querySelector('#information');
 let imageClass = document.querySelector('.image');
 signUp.setAttribute('disabled', true);
+signUp.classList.add('sign-up-disabled');
 
-function checkForm() {
-    if (name.value.length < 1 || surname.value.length < 1 || emailInput.value.length < 1) {
-        return false;
-    } else if (radio[0].checked === false && radio[1].checked === false) {
-        return false;
-    } else if (select[1].selected === false && select[2].selected === false && select[3].selected === false) {
-        return false;
-    } else if (agrement.checked === false) {
-        return false;
-    } else {
-        return true;
-    }
-}
-form1.onchange = function () {
-    if (checkForm(true)) {
-        signUp.removeAttribute('disabled');
-        signUp.classList.add('signUpTrue');
-        signUp.classList.remove('signUp');
-    } else {
-        signUp.setAttribute('disabled', true);
-    }
+function fullBlock() {
+    userName.textContent = name.value + ' ' + surname.value;
+    email.textContent = emailInput.value;
 
-
-}
-
-signUp.addEventListener('click', function () {
-    if (name.value && surname.value && emailInput.value) {
-        userName.textContent = name.value + ' ' + surname.value;
-        email.textContent = emailInput.value;
-    };
-
-    if (radio[0].checked) {
-        imageClass.style.backgroundImage = 'url("img/Без названия (1).jfif")';
-    } else if (radio[1].checked) {
+    radio[0].checked ? imageClass.style.backgroundImage = 'url("img/Без названия (1).jfif")' :
         imageClass.style.backgroundImage = 'url("img/Без названия.jfif")';
-    }
 
     for (let i = 0; i < select.length; i++) {
         if (select[i].selected) {
@@ -61,9 +32,9 @@ signUp.addEventListener('click', function () {
     }
     form1.style.display = "none";
     form2.style.display = "block";
-});
+}
 
-signOut.addEventListener('click', function () {
+function clearForm() {
     form2.style.display = "none";
     form1.style.display = "block";
     name.value = '';
@@ -74,6 +45,41 @@ signOut.addEventListener('click', function () {
     select[0].selected = true;
     agrement.checked = false;
     signUp.setAttribute('disabled', true);
-    signUp.classList.add('signUpTrue');
-    signUp.classList.remove('signUp');
+    signUp.classList.add('sign-up-disabled');
+    signUp.classList.remove('sign-up-enabled');
+}
+notChekedName = name.value.length < 1;
+notChekedSurname = surname.value.length < 1;
+notChekedEmail = emailInput.value.length < 1;
+notChekedGender = radio[0].checked === false && radio[1].checked === false;
+notChekedWork = select[1].selected === false && select[2].selected === false && select[3].selected === false;
+notChekedAgrement = agrement.checked === false;
+function checkForm() {
+    if (notChekedName || notChekedSurname || notChekedEmail || notChekedGender || notChekedWork || notChekedAgrement) {
+        return false;
+    } else {
+        return true;
+    }
+
+}
+form1.onchange = function () {
+    if (checkForm()) {
+        signUp.removeAttribute('disabled');
+        signUp.classList.add('sign-up-enabled');
+        signUp.classList.remove('sign-up-disabled');
+    } else {
+        signUp.setAttribute('disabled', true);
+        signUp.classList.add('sign-up-disabled');
+        signUp.classList.remove('sign-up-enabled');
+    }
+}
+
+
+signUp.addEventListener('click', function () {
+    fullBlock();
+});
+
+signOut.addEventListener('click', function () {
+    clearForm();
 })
+
