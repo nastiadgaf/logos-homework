@@ -12,23 +12,6 @@ body{
     border: 1px solid rgb(61, 194, 112);
     margin: 0 auto;
     background-color: white;
-    
-}
-
-#top_block{
-    background-color: rgb(61, 194, 112);
-    color: rgb(0, 0, 0);
-    height: 30px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    display: block;
-    padding-top: 1px;
-    padding-bottom: 40px;
-    margin-bottom: 15px;
-}
-#top_block_text{
-    text-align: center;
-    font-size: 30px;
 }
 .text{
     color: rgb(17, 17, 17);
@@ -40,8 +23,6 @@ body{
     color: rgb(17, 17, 17);
     font-size: 20px;
 }
-
-
 .input{
     width: 80%;
     border: 1px solid grey;
@@ -66,14 +47,6 @@ body{
 #agrement{
     margin-left: 45px;
     margin-right: -45px;
-}
-
-.top_green{
-    width: 100%;
-    background-color:rgb(61, 194, 112);
-    height: 50px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
 }
 
 .image{
@@ -137,14 +110,6 @@ body{
     transition: 1s;
 }
 
-.bottom_green{
-    width: 100%;
-    background-color:rgb(61, 194, 112);
-    margin-top: 10px;
-    height: 50px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
 #woman_img{
     display: none;
 }
@@ -157,7 +122,42 @@ body{
     display: block;
 }
 
+#form1::before{
+        content: 'Create your account';
+        background-color: rgb(61, 194, 112);
+        color: rgb(0, 0, 0);
+        height: 30px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        display:block;
+        padding-top: 30px;
+        padding-bottom: 40px;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 30px;
+        box-sizing: border-box;
+}
+
 #information{
     display: none;
     font-size: 20px ;
+}
+
+#information::before{
+    content: '';
+    width: 100%;
+    background-color:rgb(61, 194, 112);
+    height: 50px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#information::after{
+    content: '';
+    width: 100%;
+    background-color:rgb(61, 194, 112);
+    margin-top: 10px;
+    height: 50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }

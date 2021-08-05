@@ -1,4 +1,4 @@
-let tdMain = document.querySelector('.td-main');
+let td = document.querySelector('.td');
 let submitButton = document.querySelector('#submit');
 let userLogin = document.querySelector('#login');
 let userPassword = document.querySelector('#password');
@@ -24,7 +24,7 @@ class User {
 
         let userLists = document.createElement('td');
         userLists.classList.add('cell');
-        userLists.innerHTML = this.constructor.getGeneralUsers();
+        userLists.innerHTML = this.constructor.userList.length;
         userRow.append(userLists);
 
         let userCell = document.createElement('td');
@@ -52,13 +52,8 @@ class User {
         deleteButton.textContent = 'Delete';
         userRow.append(deleteButton);
 
-        tdMain.append(userRow);
+        td.append(userRow);
         submitButton.classList.add('submit_button');
-    }
-
-    static getGeneralUsers() {
-        let list = this.userList.length;
-        return list;
     }
 
     clearInputs() {
@@ -97,6 +92,11 @@ class User {
             return true;
         }
     }
+
+    checkField() {
+
+    }
+
     check() {
         this.checkLogin();
         this.checkPassword();
@@ -113,7 +113,6 @@ class User {
         }
     }
 
-
     editUser() {
         userLogin.value = this.login;
         userPassword.value = this.password;
@@ -124,8 +123,6 @@ class User {
         delete this.userObj;
     }
 }
-
-
 
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('submit_button')) {

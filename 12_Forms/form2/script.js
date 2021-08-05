@@ -48,17 +48,18 @@ function clearForm() {
     signUp.classList.add('sign-up-disabled');
     signUp.classList.remove('sign-up-enabled');
 }
-notChekedName = name.value.length < 1;
-notChekedSurname = surname.value.length < 1;
-notChekedEmail = emailInput.value.length < 1;
-notChekedGender = radio[0].checked === false && radio[1].checked === false;
-notChekedWork = select[1].selected === false && select[2].selected === false && select[3].selected === false;
-notChekedAgrement = agrement.checked === false;
+
 function checkForm() {
-    if (notChekedName || notChekedSurname || notChekedEmail || notChekedGender || notChekedWork || notChekedAgrement) {
-        return false;
-    } else {
+    let chekedName = name.value.length > 0;
+    let chekedSurname = surname.value.length > 0;
+    let chekedEmail = emailInput.value.length > 0;
+    let chekedGender = radio[0].checked === true || radio[1].checked === true;
+    let chekedWork = select[1].selected === true || select[2].selected === true || select[3].selected === true;
+    let chekedAgrement = agrement.checked === true;
+    if (chekedName && chekedSurname && chekedEmail && chekedGender && chekedWork && chekedAgrement) {
         return true;
+    } else {
+        return false;
     }
 
 }
