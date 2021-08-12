@@ -62,46 +62,38 @@ class User {
         email.value = '';
     }
 
-    checkLogin() {
-        let regexp = /[a-zA-Z]{1,20}$/;
-        let val = this.login;
-        if (!val.match(regexp)) {
+    checkField() {
+            let regexp = /[a-zA-Z]{1,20}$/;
+            let val = this.login;
+            let regexp2 = /(?=.*[0-9])(?=.*[a-z_])(?=.*[A-Z]){8,15}/g;
+            let val2 = this.password;
+            let regexp3 = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+            let val3 = this.email;
+            if(val.match(regexp) && val2.match(regexp2) && val3.match(regexp3)){
+                return true;
+            } else {
+                return false;
+            }
+    }
+
+    validate(){
+        if(!this.checkField()){
             userLogin.classList.add('wrong');
-        } else {
-            userLogin.classList.remove('wrong');
-            return true;
-        }
-    }
-    checkPassword() {
-        let regexp2 = /(?=.*[0-9])(?=.*[a-z_])(?=.*[A-Z]){8,15}/g;
-        let val2 = this.password;
-        if (!val2.match(regexp2)) {
             userPassword.classList.add('wrong');
-        } else {
-            userPassword.classList.remove('wrong');
-            return true;
-        }
-    }
-    checkEmail() {
-        let regexp3 = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
-        let val3 = this.email;
-        if (!val3.match(regexp3)) {
             userEmail.classList.add('wrong');
-        } else {
+            return false;
+        } else{
+            userLogin.classList.remove('wrong');
+            userPassword.classList.remove('wrong');
             userEmail.classList.remove('wrong');
             return true;
         }
     }
 
-    checkField() {
-
-    }
-
     check() {
-        this.checkLogin();
-        this.checkPassword();
-        this.checkEmail();
-        if (this.checkLogin() && this.checkPassword() && this.checkEmail()) {
+        this.checkField();
+        this.validate();
+        if (this.checkField()) {
             this.createUserRow();
             question.classList.add('question_hide');
             question.classList.remove('question_show');
@@ -129,7 +121,7 @@ document.addEventListener('click', function (e) {
         let userObj = new User(login.value, password.value, email.value);
         userObj.check();
     } else if (e.target.classList.contains('edit_button')) {
-        new User().editUser();
+        userObj.editUser();
     } else if (e.target.classList.contains('delete_button')) {
         this.userObj.deleteUser();
     } else if (e.target.classList.contains('close')) {

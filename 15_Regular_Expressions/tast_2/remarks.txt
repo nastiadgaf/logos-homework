@@ -1,7 +1,7 @@
 Task 2
 1. Имена переменных: tdMain, list (local getGeneralUsers) - исправить.+
 2. getGeneralUsers - лишний метод.+
-3. checkEmail, checkPassword, checkName --- объединить в checkField.
-4. checkField - только проверяет значение поля, возвращает true/false.
-5. check -> validate, она красит поля и возвращает true/false, используя checkField.
+3. checkEmail, checkPassword, checkName --- объединить в checkField.+
+4. checkField - только проверяет значение поля, возвращает true/false.+
+5. check -> validate, она красит поля и возвращает true/false, используя checkField.+
 6. editUser - обращаться к объекту нужного пользователя, для поиска использовать локацию кнопки в DOM дереве.

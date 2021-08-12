@@ -1,6 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap')
+@font-face 
+    font-family: 'Kanit Light'
+    src: url(fonts/kanit-light.otf)
+
+@font-face 
+    font-family: 'Kanit Medium'
+    src: url(fonts/kanit-medium.otf)
+
 body
     overflow-x: hidden
+    font-family: 'Kanit Medium'
 
 .container
     width: 1140px
@@ -11,118 +19,154 @@ body
     height: 120px
     display: flex
     align-items: center
-    &__flex
-        width: 55%
-        display: flex
-        justify-content: space-between
-    &__nav
-        font-size: 30px
-        margin-left: 48px
-        justify-self: start
-    &__heading
-        display: flex
-        justify-self: center
-    &__name
-        margin: 0
-        letter-spacing: 4px
-        display: flex
-        text-align: center
-        font-size: 30px
-        color: #231f20
-        font-weight: 700
-        &_italic
-            font-style: italic
-            letter-spacing: none
-        &_weight
-            font-weight: 400
+
+.header__flex
+    width: 55%
+    display: flex
+    justify-content: space-between
+
+.header__nav
+    font-size: 30px
+    margin-left: 48px
+    justify-self: start
+
+.header__heading
+    display: flex
+    justify-self: center
+
+.header__name
+    margin: 0
+    letter-spacing: 4px
+    display: flex
+    text-align: center
+    font-size: 30px
+    color: #231f20
+    font-weight: 700
+
+.header__name_italic
+    font-style: italic
+    letter-spacing: none
+
+.header__name_weight
+    font-weight: 400
+
+.header__logo
+    width: 157px
+    height: 30px
 
 .preview
-    font-family: Kanit
-    width: 100vw
-    &__image
-        background-image: url(img/philip-martin.png)
-        background-size: cover
-        height: 570px
-    &__menu
-        display: flex
-        justify-content: space-between
-        color: #ffffff
-        font-size: 14px
-        font-weight: 500
-        letter-spacing: 7px
-        margin-bottom: 66px
-    &__link
-        color: #ffffff
-    &__heading
-        color: #ffffff
-        font-size: 28px
-        font-weight: 500
-        text-transform: uppercase
-        margin-bottom: 29px
-    &__text
-        color: #ffffff
-        font-size: 14px
-        font-weight: 300 
-        margin-bottom: 54px
-    &__button
-        width: 198px
-        height: 55px
-        color: #ffffff
-        font-size: 12px
-        font-weight: 500
-        text-align: center
-        text-transform: uppercase
-        border: 1px solid #ffffff
-        background-color: black
-    &__right
-        box-sizing: border-box
-        background-color: black
-        color: white
-        height: 570px
-    &__elements
-        margin-top: 100px
-        margin-bottom: 151px
-        margin-left: 108px
-        margin-right: 109px
+    font-family: 'Kanit Medium'
+    
+.preview__image
+    width: 100%
+    height: 570px
+    
+.preview__menu
+    display: flex
+    justify-content: space-between
+    color: #ffffff
+    font-size: 14px
+    margin-bottom: 66px
+    
+.preview__link
+    color: #ffffff
+    text-transform: uppercase
+    letter-spacing: normal
+    font-size: 16px
+    line-height: 24px
+    
+.preview__date
+    letter-spacing: 7px
+
+.preview__heading
+    color: #ffffff
+    font-size: 28px
+    font-weight: 500
+    text-transform: uppercase
+    margin-bottom: 29px
+    
+.preview__text
+    color: #ffffff
+    font-size: 14px
+    font-weight: 300 
+    margin-bottom: 54px
+    font-family: 'Kanit Light'
+    
+.preview__button
+    padding: 18px 66px
+    line-height: 18px
+    font-size: 12px
+    display: inline-block
+    color: #ffffff
+    text-align: center
+    text-transform: uppercase
+    border: 1px solid #ffffff
+    background-color: black
+    
+
+.preview__right
+    box-sizing: border-box
+    background-color: black
+    color: white
+    height: 570px
+    
+.preview__elements
+    padding-bottom: 151px
+    padding-left: 108px
+    padding-right: 109px
+    padding-top: 100px
+
+.col-xl-6
+    padding: 0
+    
+.col-lg-6, .col-md-6, col-12
+    padding: 0
 
 .featured
     display: flex
     justify-content: center
     margin-right: 150px
     margin-left: 150px
-    &__heading
-        margin-bottom: 30px
-        margin-top: 59px
-        color: #1f1f1d
-        font-size: 18px
-        font-weight: 500
-        text-align: left
-    &__image_1
-        background-image: url(img/featured_1.png)
-        background-size: cover
-        height: 368px
-        padding: 0
-    &__image_2
-        background-image: url(img/featured_2.png)
-        background-size: cover
-        height: 368px
-        padding: 0
-        margin-left: 27px
-    &__info_right
-        margin-left: 27px
-    &__menu
-        margin-top: 26px
-        margin-bottom: 34px
-    &__headline
-        color: #1f1f1d
-        font-size: 24px
-        font-weight: 500
-        margin-bottom: 19px
-    &__text
-        color: #1f1f1d
-        font-size: 18px
-        font-weight: 300
+    flex-direction: column
 
+.featured__heading
+    margin-bottom: 30px
+    margin-top: 59px
+    color: #1f1f1d
+    font-size: 18px
+    text-align: left
+    text-transform: uppercase
+
+.featured__image_1
+    background-image: url(img/featured_1.png)
+    background-size: cover
+    height: 368px
+    padding: 0
+
+.featured__image_2
+    background-image: url(img/featured_2.png)
+    background-size: cover
+    height: 368px
+    padding: 0
+    margin-left: 27px
+
+.featured__info_right
+    margin-left: 27px
+
+.featured__menu
+    margin-top: 26px
+    margin-bottom: 34px
+
+.featured__headline
+    color: #1f1f1d
+    font-size: 24px
+    font-weight: 500
+    margin-bottom: 19px
+
+.featured__text
+    color: #1f1f1d
+    font-size: 18px
+    font-family: 'Kanit Light'
 
 .menu
     display: flex
@@ -134,77 +178,97 @@ body
 
 .link
     color: #000000
+    text-transform: uppercase
+    letter-spacing: normal
 
 .small
     margin-top: 63px
-    &__image_1
-        background-image: url(img/small_1.png)
-    &__image_2
-        background-image: url(img/small_2.png)
-    &__image_3
-        background-image: url(img/small_3.png)
-    &__image_4
-        background-image: url(img/interviews_1.png)
-    &__image_5
-        background-image: url(img/interviews_2.png)
-    &__image_6
-        background-image: url(img/interviews_3.png)
-    &__image_7
-        background-image: url(img/news_1.jpg)
-    &__image_8
-        background-image: url(img/news_2.jpg)
-    &__image_9
-        background-image: url(img/news_3.jpg)
-    &__image
-        margin-bottom: 18px
-        background-size: cover
-        height: 240px
-    &__heading
-        color: #1f1f1d
-        font-size: 18px
-        font-weight: 500
-        text-transform: uppercase
-        margin-top: 22px
+
+.small__image_1
+    background-image: url(img/small_1.png)
+
+.small__image_2
+    background-image: url(img/small_2.png)
+
+.small__image_3
+    background-image: url(img/small_3.png)
+
+.small__image_4
+    background-image: url(img/interviews_1.png)
+
+.small__image_5
+    background-image: url(img/interviews_2.png)
+
+.small__image_6
+    background-image: url(img/interviews_3.png)
+
+.small__image_7
+    background-image: url(img/news_1.jpg)
+
+.small__image_8
+    background-image: url(img/news_2.jpg)
+
+.small__image_9
+    background-image: url(img/news_3.jpg)
+
+.small__image
+    margin-bottom: 18px
+    background-size: cover
+    height: 240px
+
+.small__heading
+    color: #1f1f1d
+    font-size: 18px
+    font-weight: 500
+    text-transform: uppercase
+    margin-top: 22px
 
 .button
     display: flex
     justify-content: center
     margin-top: 63px
-    &__all
-        width: 238px
-        height: 42px
-        background-color: #303030
-        color: #ffffff
-        font-size: 14px
-        font-weight: 500
-        text-align: center
-        text-transform: uppercase
+
+.button__all
+    width: 238px
+    height: 42px
+    background-color: #303030
+    color: #ffffff
+    font-size: 14px
+    font-weight: 500
+    text-align: center
+    text-transform: uppercase
 
 .subscribe
     margin-top: 71px
-    &__image    
-        background-image: url(img/subscribe.png)
-        background-size: cover
-        height: 361px
-    &__info
-        background-color: black
-        height: 361px
-    &__heading
-        color: #ffffff
-        font-size: 34px
-        font-weight: 500
-    &__button
-        width: 198px
-        height: 42px
-        border: 1px solid #ffffff
-        background-color: black
-        color: white
-        margin-top: 20px
-    &__info
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: center
+
+.subscribe__image    
+    background-image: url(img/subscribe.png)
+    background-size: cover
+    height: 361px
+
+.subscribe__info
+    background-color: black
+    height: 361px
+
+.subscribe__heading
+    color: #ffffff
+    font-size: 34px
+    text-transform: uppercase
+
+.subscribe__button
+    width: 198px
+    height: 42px
+    border: 1px solid #ffffff
+    background-color: black
+    color: white
+    margin-top: 20px
+    text-transform: uppercase
+
+.subscribe__info
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
 
 .footer
     display: flex
@@ -214,56 +278,62 @@ body
     background-color: black
     height: 163px
     margin-top: 100px
-    &__name
-        letter-spacing: 4px
-        margin: 0
-        display: flex
-        text-align: center
-        font-size: 30px
-        color: white
-        font-weight: 700
-        &_italic
-            font-style: italic
-        &_weight
-            font-weight: 400
-    &__text 
-        color: #ffffff
-        font-size: 12px
-        font-weight: 300
+
+.footer__name
+    letter-spacing: 4px
+    margin: 0
+    display: flex
+    text-align: center
+    font-size: 30px
+    color: white
+    font-weight: 700
+
+.footer__name_italic
+    font-style: italic
+
+.footer__name_weight
+    font-weight: 400
+
+.footer__name_text 
+    color: #ffffff
+    font-size: 12px
+    font-weight: 300
 
 @media screen and (max-width: 1240px)
-    .preview
-        &__image
-            width: 620px
-            height: 570px
-        &__right
-            width: 620px
-            height: 570px
+    .preview__image
+        width: 620px
+        height: 570px
+
+    .preview__right
+        width: 620px
+        height: 570px
 
     .container
         width: 941px
 
-    .featured
-        &__image
-            width: 455px
-            height: 302px
-            &_2
-                margin-left: 30px
-        &__info
-            width: 455px
-            &_right
-                margin-left: 30px
-    .small
-        &__image
-            width: 295px
-            height: 195px
-        &__info   
-            width: 295px
+    .featured__image
+        width: 455px
+        height: 302px
 
-    .subscribe
-        &__item
-            width: 470px
-            height: 361px
+    .featured__image_2
+        margin-left: 30px
+
+    .featured__info
+        width: 455px
+
+    .featured__info_right
+        margin-left: 30px
+
+    .small__image
+        width: 295px
+        height: 195px
+
+    .small__info   
+        width: 295px
+
+    .subscribe__item
+        width: 470px
+        height: 361px
 
 @media screen and (max-width: 768px)
     .container
@@ -367,6 +437,10 @@ body
     &__name
         font-size: 26px
 
+.footer__logo
+    width: 142px
+    height: 27px
+
 @media screen and (max-width: 320px)
     .container
         width: 295px
@@ -441,13 +515,17 @@ body
 
     .subscribe
         margin-top: 43px
-        &__image 
-            height: 245px
-        &__info
-            height: 175px
-        &__heading
-            font-size: 18px
-        &__button
-            height: 43px
-            margin-top: 27px
-            font-size: 14px
+
+    .subscribe__image 
+        height: 245px
+
+    .subscribe__info
+        height: 175px
+            
+    .subscribe__heading
+        font-size: 18px
+
+    .subscribe__button
+        height: 43px
+        margin-top: 27px
+        font-size: 14px
