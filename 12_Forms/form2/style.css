@@ -144,6 +144,7 @@ body{
 }
 
 #information::before{
+	display: block;
     content: '';
     width: 100%;
     background-color:rgb(61, 194, 112);
@@ -153,6 +154,7 @@ body{
 }
 
 #information::after{
+	display: block;
     content: '';
     width: 100%;
     background-color:rgb(61, 194, 112);
