@@ -112,7 +112,7 @@ class User {
     }
 
     deleteUser() {
-        delete this.userObj;
+        delete this.User;
     }
 }
 

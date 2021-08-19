@@ -1,16 +1,16 @@
 @font-face 
     font-family: 'Kanit Light'
-    src: url(fonts/kanit-light.otf)
+    src: url(fonts/Kanit-Light.woff2)
 
 @font-face 
     font-family: 'Kanit Medium'
-    src: url(fonts/kanit-medium.otf)
+    src: url(fonts/Kanit-Medium.woff2)
 
 body
     overflow-x: hidden
     font-family: 'Kanit Medium'
 
-.container
+.main-container
     width: 1140px
     margin: 0 auto
 
@@ -20,46 +20,11 @@ body
     display: flex
     align-items: center
 
-.header__flex
-    width: 55%
-    display: flex
-    justify-content: space-between
-
 .header__nav
     font-size: 30px
-    margin-left: 48px
-    justify-self: start
-
-.header__heading
-    display: flex
-    justify-self: center
-
-.header__name
-    margin: 0
-    letter-spacing: 4px
-    display: flex
-    text-align: center
-    font-size: 30px
-    color: #231f20
-    font-weight: 700
-
-.header__name_italic
-    font-style: italic
-    letter-spacing: none
-
-.header__name_weight
-    font-weight: 400
-
-.header__logo
-    width: 157px
-    height: 30px
 
 .preview
     font-family: 'Kanit Medium'
-    
-.preview__image
-    width: 100%
-    height: 570px
     
 .preview__menu
     display: flex
@@ -341,78 +306,98 @@ body
 
     .header
         height: 65px
-    &__nav
+
+    .header__nav
         margin-left: 22px
         justify-self: start
-    &__name
+
+    .header__name
         font-size: 20px
         font-weight: 500
-        &_weight
-            font-weight: 200
 
-    .preview
-        &__image
-            height: 354px
-        &__menu
-            font-size: 12px
-            margin-bottom: 20px
-        &__link
-            display: none
-        &__heading
-            font-size: 18px
-            margin-bottom: 20px
-        &__text
-            font-size: 12px
-            margin-bottom: 31px
-        &__button
-            height: 40px
-        &__right
-            height: 354px
-        &__elements
-            margin-top: 72px
-            margin-bottom: 72px
-            margin-left: 21px
-            margin-right: 18px
+    .header__name_weight
+        font-weight: 200
+    
+    .preview__image
+        height: 354px
+    
+    .preview__menu
+        font-size: 12px
+        margin-bottom: 20px
+    
+    .preview__link
+        display: none
+    
+    .preview__heading
+        font-size: 18px
+        margin-bottom: 20px
+    
+    .preview__text
+        font-size: 12px
+        margin-bottom: 31px
+    
+    .preview__button
+        height: 40px
+    
+    .preview__right
+        height: 354px
+    
+    .preview__elements
+        margin-top: 72px
+        margin-bottom: 72px
+        margin-left: 21px
+        margin-right: 18px
 
     .featured
         margin-right: 24px
         margin-left: 24px
-        &__heading
-            margin-bottom: 21px
-            margin-top: 60px
-        &__image_1
-            width: 345px    
-            height: 228px
-        &__image_2
-            height: 228px
-            width: 345px
-            margin-left: 30px
-        &__info_right
-            margin-left: 30px
-        &__menu
-            font-size: 12px
-            margin-top: 21px
-            margin-bottom: 16px
-        &__headline
-            font-size: 18px
-            margin-bottom: 21px
-        &__text
-            font-size: 14px
-        &__info 
-            width: 345px
+    
+    .featured__heading
+        margin-bottom: 21px
+        margin-top: 60px
+    
+    .featured__image_1
+        width: 345px    
+        height: 228px
+    
+    .featured__image_2
+        height: 228px
+        width: 345px
+        margin-left: 30px
+    
+    .featured__info_right
+        margin-left: 30px
+    
+    .featured__menu
+        font-size: 12px
+        margin-top: 21px
+        margin-bottom: 16px
+    
+    .featured__headline
+        font-size: 18px
+        margin-bottom: 21px
+    
+    .featured__text
+        font-size: 14px
+    
+    .featured__info 
+        width: 345px
 
     .small
         margin-top: 36px
-        &__image
-            margin-bottom: 21px
-            background-size: cover
-            height: 145px
-            width: 220px
-        &__heading
-            font-size: 16px
-            margin-top: 15px
-        &__info
-            width: 220px
+
+    .small__image
+        margin-bottom: 21px
+        background-size: cover
+        height: 145px
+        width: 220px
+
+    .small__heading
+        font-size: 16px
+        margin-top: 15px
+
+    .small__info
+        width: 220px
 
     .link
         letter-spacing: 0
@@ -422,90 +407,104 @@ body
 
     .subscribe
         margin-top: 60px
-        &__image
-            height: 275px
-        &__info
-            height: 275px
-        &__heading
-            font-size: 18px
-        &__button
-            margin-top: 27px
+    
+    .subscribe__image
+        height: 275px
+    
+    .subscribe__info
+        height: 275px
+    
+    .subscribe__heading
+        font-size: 18px
+    
+    .subscribe__button
+        margin-top: 27px
 
     .footer
         height: 163px
         margin-top: 70px
-    &__name
-        font-size: 26px
-
-.footer__logo
-    width: 142px
-    height: 27px
 
 @media screen and (max-width: 320px)
     .container
         width: 295px
-
-    .preview
-        &__image
-            height: 294px
-        &__menu
-            font-size: 12px
-            letter-spacing: 6px
-            margin-bottom: 20px
-        &__link
-            display: none
-        &__heading
-            font-size: 18px
-            margin-bottom: 20px
-        &__text
-            font-size: 12px
-            margin-bottom: 20px
-        &__button
-            height: 40px
-            font-size: 12px
-        &__right
-            height: 246px
-        &__elements
-            margin-top: 16px
-            margin-bottom: 32px
-            margin-left: 12px
-            margin-right: 13px
+    
+    .preview__image
+        height: 294px
+    
+    .preview__menu
+        font-size: 12px
+        letter-spacing: 6px
+        margin-bottom: 20px
+    
+    .preview__link
+        display: none
+    
+    .preview__heading
+        font-size: 18px
+        margin-bottom: 20px
+    
+    .preview__text
+        font-size: 12px
+        margin-bottom: 20px
+    
+    .preview__button
+        height: 40px
+        font-size: 12px
+    
+    .preview__right
+        height: 246px
+    
+    .preview__elements
+        margin-top: 16px
+        margin-bottom: 32px
+        margin-left: 12px
+        margin-right: 13px
 
     .featured
         margin: 0
-        &__heading
-            margin-bottom: 21px
-            margin-top: 60px
-        &__image_1
-            width: 295px
-            height: 195px
-        &__image_2
-            width: 295px
-            height: 195px
-            margin-left: 0
-        &__info_right
-            margin-left: 0
-        &__menu
-            font-size: 12px
-            margin-top: 16px
-            margin-bottom: 16px
-        &__link
-            display: none
-        &__info 
-            width: 295px
+    
+    .featured__heading
+        margin-bottom: 21px
+        margin-top: 60px
+    
+    .featured__image_1
+        width: 295px
+        height: 195px
+    
+    .featured__image_2
+        width: 295px
+        height: 195px
+        margin-left: 0
+    
+    .featured__info_right
+        margin-left: 0
+    
+    .featured__menu
+        font-size: 12px
+        margin-top: 16px
+        margin-bottom: 16px
+    
+    .featured__link
+        display: none
+    
+    .featured__info 
+        width: 295px
 
     .small
         margin-top: 27px
-        &__image
-            margin-bottom: 18px
-            margin-top: 22px
-            width: 295px
-            height: 195px
-        &__heading
-            font-size: 16px
-            margin-top: 15px
-        &__info 
-            width: 295px
+    
+    .small__image
+        margin-bottom: 18px
+        margin-top: 22px
+        width: 295px
+        height: 195px
+    
+    .small__heading
+        font-size: 16px
+        margin-top: 15px
+    
+    .small__info 
+        width: 295px
     
     .link
         letter-spacing: none

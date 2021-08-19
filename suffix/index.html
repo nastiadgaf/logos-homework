@@ -5,31 +5,36 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title>Suffix</title>
+	<link rel="stylesheet" href="libs/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<header class="header">
-		<div class="header__flex">
-			<div class="header__nav">=</div>
-			<div class="header__heading">
-				<img src="img/logo.png" alt="logo" class="header__logo">
-			</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1">
+					<div class="header__nav">=</div>
+				</div>
+				<div class="col-md-7 offset-md-4">
+					<div class="header__heading">
+						<img src="img/logo.png" alt="logo" width = "157" height = "30" class="header__logo">
+					</div>
+				</div>
+			  </div>
 		</div>
 	</header>
-	<section class="preview">
+	<div class="preview">
 		<div class="row">
 			<div class=" col-md-6 col-12">
-				<img src="img/philip-martin.png" class="preview__image"></img>
+				<img src="img/philip-martin.png" class="preview__image" width = "720" height = "570"></img>
 			</div>
 			<div class=" col-md-6 col-12">
 				<div class="preview__right">
 					<div class="preview__elements">
 						<div class="preview__menu">
-							<time class="preview__date">10/10/2020</time>
+							<time class="preview__date" datetime= "10/10/2020">10/10/2020</time>
 							<a href="#" class="preview__link">lifestyle</a>
 						</div>
 						<h2 class="preview__heading">At vero eos et accusamus et</h2>
@@ -41,18 +46,18 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
-	<main>
-		<section class="featured container">
+	<main class="main-container">
+		<section class="featured ">
 			<h2 class="featured__heading">featured</h2>
 			<div class="row ">
-				<div class="col-xl-6 col-lg-6 col-md-6 col-12">
+				<div class="col-md-6 col-12">
 					<div class="featured__item">
 						<div class="featured__image_1 featured__image"></div>
 						<div class="featured__info">
 							<div class="featured__menu menu">
-								<time class="featured__date">10/10/2020</time>
+								<time class="featured__date" datetime= "10/10/2020" >10/10/2020</time>
 								<a href="#" class="featured__link link">lifestyle</a>
 							</div>
 							<h2 class="featured__headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
@@ -62,12 +67,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-6 col-lg-6 col-md-6 col-12 featured__item ">
+				<div class="col-md-6 col-12">
 					<div class="featured__item">
 						<div class="featured__image_2 featured__image"></div>
 						<div class="featured__info featured__info_right">
 							<div class="featured__menu menu">
-								<time class="featured__date">10/10/2020</time>
+								<time class="featured__date" datetime= "10/10/2020">10/10/2020</time>
 								<a href="#" class="featured__link link">lifestyle</a>
 							</div>
 							<h2 class="featured__headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
@@ -81,12 +86,12 @@
 
 			<div class="small">
 				<div class="row small__row">
-					<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+					<div class="col-md-4 col-12">
 						<div class="small__item">
 							<div class="small__image small__image_1"></div>
 							<div class="small__info">
 								<div class="small__menu menu">
-									<time class="small__date">10/10/2020</time>
+									<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 									<a href="#" class="small__link link">lifestyle</a>
 								</div>
 								<h3 class="small__heading">At vero eos et accusamus et iusto</h3>
@@ -94,12 +99,12 @@
 						</div>
 					</div>
 
-					<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+					<div class="col-md-4 col-12">
 						<div class="small__item">
 							<div class="small__image small__image_2"></div>
 							<div class="small__info">
 								<div class="small__menu menu">
-									<time class="small__date">10/10/2020</time>
+									<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 									<a href="#" class="small__link link">lifestyle</a>
 								</div>
 								<h3 class="small__heading">At vero eos et</h3>
@@ -107,12 +112,12 @@
 						</div>
 					</div>
 
-					<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+					<div class="col-md-4 col-12">
 						<div class="small__item">
 							<div class="small__image small__image_3"></div>
 							<div class="small__info">
 								<div class="small__menu menu">
-									<time class="small__date">10/10/2020</time>
+									<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 									<a href="#" class="small__link link">lifestyle</a>
 								</div>
 								<h3 class="small__heading">At vero eos et accusamus et iusto</h3>
@@ -122,19 +127,19 @@
 				</div>
 			</div>
 
+			<div class="button">
+				<button class="button__all" type="button">See All</button>
+			</div>
+	
 		</section>
 
 
 
-		<div class="button container">
-			<button class="button__all" type="button">See All</button>
-		</div>
-
-		<section class="subscribe container">
+		<section class="subscribe">
 			<div class="row ">
-				<div class="col-xl-6 col-lg-6 col-md-6 col-12 subscribe__item subscribe__image"></div>
+				<div class="col-md-6 col-12 subscribe__item subscribe__image"></div>
 
-				<div class="col-xl-6 col-lg-6 col-md-6 col-12 subscribe__item subscribe__info">
+				<div class="col-md-6 col-12 subscribe__item subscribe__info">
 					<h1 class="subscribe__heading">issue 22 - may 2020</h1>
 					<button class="subscribe__button" type="button">subscribe now</button>
 				</div>
@@ -143,16 +148,17 @@
 			</div>
 		</section>
 
-		<h3 class="featured__heading container">interviews</h3>
+		
 
-		<section class="small container">
+		<section class="small">
+			<h3 class="featured__heading ">interviews</h3>
 			<div class="row small__row">
-				<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+				<div class="col-md-4 col-12">
 					<div class="small__item">
 						<div class="small__image small__image_4"></div>
 						<div class="small__info">
 							<div class="small__menu menu">
-								<time class="small__date">10/10/2020</time>
+								<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 								<a href="#" class="small__link link">interviews</a>
 							</div>
 							<h3 class="small__heading">At vero eos et accusamus et iusto</h3>
@@ -160,12 +166,12 @@
 					</div>
 				</div>
 
-				<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+				<div class="col-md-4 col-12">
 					<div class="small__item">
 						<div class="small__image small__image_5"></div>
 						<div class="small__info">
 							<div class="small__menu menu">
-								<time class="small__date">10/10/2020</time>
+								<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 								<a href="#" class="small__link link">interviews</a>
 							</div>
 							<h3 class="small__heading">At vero eos et</h3>
@@ -173,12 +179,12 @@
 					</div>
 				</div>
 
-				<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+				<div class="col-md-4 col-12">
 					<div class="small__item">
 						<div class="small__image small__image_6"></div>
 						<div class="small__info">
 							<div class="small__menu menu">
-								<time class="small__date">10/10/2020</time>
+								<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 								<a href="#" class="small__link link">interviews</a>
 							</div>
 							<h3 class="small__heading">At vero eos et accusamus et iusto</h3>
@@ -186,22 +192,20 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="button container">
+			<div class="button">
 				<button class="button__all" type="button">See All</button>
 			</div>
 		</section>
 
-		<h3 class="featured__heading container">news</h3>
-
-		<section class="small container">
+		<section class="small">
+			<h3 class="featured__heading ">news</h3>
 			<div class="row small__row">
-				<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+				<div class="col-md-4 col-12">
 					<div class="small__item">
 						<div class="small__image small__image_7"></div>
 						<div class="small__info">
 							<div class="small__menu menu">
-								<time class="small__date">10/10/2020</time>
+								<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 								<a href="#" class="small__link link">news</a>
 							</div>
 							<h3 class="small__heading">At vero eos et accusamus et iusto</h3>
@@ -209,12 +213,12 @@
 					</div>
 				</div>
 
-				<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+				<div class="col-md-4 col-12">
 					<div class="small__item">
 						<div class="small__image small__image_8"></div>
 						<div class="small__info">
 							<div class="small__menu menu">
-								<time class="small__date">10/10/2020</time>
+								<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 								<a href="#" class="small__link link">news</a>
 							</div>
 							<h3 class="small__heading">At vero eos et</h3>
@@ -222,12 +226,12 @@
 					</div>
 				</div>
 
-				<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+				<div class="col-md-4 col-12">
 					<div class="small__item">
 						<div class="small__image small__image_9"></div>
 						<div class="small__info">
 							<div class="small__menu menu">
-								<time class="small__date">10/10/2020</time>
+								<time class="small__date" datetime= "10/10/2020">10/10/2020</time>
 								<a href="#" class="small__link link">news</a>
 							</div>
 							<h3 class="small__heading">At vero eos et accusamus et iusto</h3>
@@ -236,7 +240,7 @@
 				</div>
 			</div>
 
-			<div class="button container">
+			<div class="button">
 				<button class="button__all " type="button">See All</button>
 			</div>
 		</section>
@@ -245,7 +249,7 @@
 
 	<footer class="footer">
 		<div class="footer__heading">
-			<img src="img/footer_logo.png" alt="logo" class="footer__logo">
+			<img src="img/footer_logo.png" alt="logo" width = "142" height = "27" class="footer__logo">
 		</div>
 		<p class="footer__text">Designed by Suffix </p>
 	</footer>
