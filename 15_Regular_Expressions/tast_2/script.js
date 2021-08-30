@@ -105,14 +105,21 @@ class User {
         }
     }
 
+    fillInputs(){
+        this.login = userLogin.value;
+        this.password = userPassword.value;
+        this.email = userEmail.value;
+        
+    }
+
     editUser() {
         userLogin.value = this.login;
         userPassword.value = this.password;
         userEmail.value = this.email;
+        this.fillInputs();
     }
 
     deleteUser() {
-        delete this.User;
     }
 }
 
@@ -121,9 +128,15 @@ document.addEventListener('click', function (e) {
         let userObj = new User(login.value, password.value, email.value);
         userObj.check();
     } else if (e.target.classList.contains('edit_button')) {
+        let row = e.target.closest('tr');
+        let id = row.children[0].textContent;
+        let userObj = User.userList[--id];
         userObj.editUser();
     } else if (e.target.classList.contains('delete_button')) {
-        this.userObj.deleteUser();
+        let row = e.target.closest('tr');
+        let id = row.children[0].textContent;
+        let userObj = User.userList[--id];
+        userObj.deleteUser();
     } else if (e.target.classList.contains('close')) {
         modal.classList.add('hide');
     } else if (e.target.classList.contains('question')) {

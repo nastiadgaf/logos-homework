@@ -20,6 +20,10 @@ table {
     font-weight: 400;
 }
 
+.removing{
+    background-color: red;
+}
+
 table td {
     padding: 20px 24px;
 }
@@ -193,4 +197,9 @@ table tr {
 
 .question_hide{
     display: none;
+}
+
+
+.cell{
+    text-align: center;
 }

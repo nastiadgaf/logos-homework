@@ -10,9 +10,8 @@ body
     overflow-x: hidden
     font-family: 'Kanit Medium'
 
-.main-container
-    width: 1140px
-    margin: 0 auto
+.no-padding
+    padding: 0
 
 .header
     width: 100%
@@ -104,6 +103,11 @@ a:hover
     font-size: 14px
     margin-bottom: 66px
     
+.preview__image
+    width: 720px
+    height: 570px
+    float: right
+
 .preview__link
     color: #ffffff
     text-transform: uppercase
@@ -139,24 +143,17 @@ a:hover
     border: 1px solid #ffffff
     background-color: black
     
-
 .preview__right
-    box-sizing: border-box
     background-color: black
     color: white
     height: 570px
+    width: 720px
     
 .preview__elements
     padding-bottom: 151px
     padding-left: 108px
     padding-right: 109px
     padding-top: 100px
-
-.col-xl-6
-    padding: 0
-    
-.col-lg-6, .col-md-6, col-12
-    padding: 0
 
 .featured
     display: flex
@@ -173,21 +170,18 @@ a:hover
     text-align: left
     text-transform: uppercase
 
-.featured__image_1
-    background-image: url(img/featured_1.png)
-    background-size: cover
+.featured__image
+    width: 557px
     height: 368px
-    padding: 0
 
-.featured__image_2
-    background-image: url(img/featured_2.png)
-    background-size: cover
-    height: 368px
-    padding: 0
+.featured__item_mgn
     margin-left: 27px
 
-.featured__info_right
-    margin-left: 27px
+.featured__item
+    width: 557px
+
+.featured__date
+    letter-spacing: 6px
 
 .featured__menu
     margin-top: 26px
@@ -217,8 +211,14 @@ a:hover
     text-transform: uppercase
     letter-spacing: normal
 
+.link-white 
+    color: white
+
 .small
     margin-top: 63px
+
+.small__date
+    letter-spacing: 6px
 
 .small__image_1
     background-image: url(img/small_1.png)
