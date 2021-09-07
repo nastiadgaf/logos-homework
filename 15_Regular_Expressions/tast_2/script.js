@@ -1,5 +1,6 @@
 let td = document.querySelector('.td');
 let submitButton = document.querySelector('#submit');
+let editBtn = document.querySelector('.edit-user_button');
 let userLogin = document.querySelector('#login');
 let userPassword = document.querySelector('#password');
 let userEmail = document.querySelector('#email');
@@ -105,10 +106,15 @@ class User {
         }
     }
 
-    fillInputs(){
-        this.login = userLogin.value;
-        this.password = userPassword.value;
-        this.email = userEmail.value;
+    fillInputs(){ 
+        rowArray[0].children[1].textContent = login.value;
+        rowArray[0].children[2].textContent = password.value;
+        rowArray[0].children[3].textContent = email.value;
+        this.login =rowArray[0].children[1].textContent;
+        this.password =rowArray[0].children[2].textContent;
+        this.email =rowArray[0].children[3].textContent;
+        rowArray.pop(this);
+        this.clearInputs();
         
     }
 
@@ -116,12 +122,26 @@ class User {
         userLogin.value = this.login;
         userPassword.value = this.password;
         userEmail.value = this.email;
-        this.fillInputs();
     }
 
     deleteUser() {
+        td.removeChild(rowArray[0]);
+        User.userList.pop(this);
+        rowArray.pop(this);
+    }
+
+    toggleEditBtn(){
+        editBtn.classList.remove('hide');
+        submitButton.classList.add('hide');
+    }
+
+    toggleAddBtn(){
+        submitButton.classList.remove('hide');
+        editBtn.classList.add('hide');
     }
 }
+
+let rowArray = [];
 
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('submit_button')) {
@@ -132,12 +152,21 @@ document.addEventListener('click', function (e) {
         let id = row.children[0].textContent;
         let userObj = User.userList[--id];
         userObj.editUser();
+        userObj.toggleEditBtn();
+        rowArray.push(row);
     } else if (e.target.classList.contains('delete_button')) {
         let row = e.target.closest('tr');
         let id = row.children[0].textContent;
         let userObj = User.userList[--id];
+        rowArray.push(row);
         userObj.deleteUser();
-    } else if (e.target.classList.contains('close')) {
+    } else if (e.target.classList.contains('edit-user_button')) {
+        let row = rowArray[0];
+        let id = row.children[0].textContent;
+        let userObj = User.userList[--id];
+        userObj.fillInputs();
+        userObj.toggleAddBtn();
+    }else if (e.target.classList.contains('close')) {
         modal.classList.add('hide');
     } else if (e.target.classList.contains('question')) {
         modal.classList.remove('hide');

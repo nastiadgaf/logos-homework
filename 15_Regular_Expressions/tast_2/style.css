@@ -87,6 +87,25 @@ table tr {
     transition: .15s ease-in-out;
 }
 
+.edit-user_button{
+    border: none;
+    padding: 10px 15px;
+    margin: 20px 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 40px rgb(215, 127, 233) inset, 0 0 0 0 rgb(215, 127, 233);
+    font-family: 'Encode Sans SC', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+    transition: .15s ease-in-out;
+}
+
+.edit-user_button:hover {
+    border: none;
+    background-color: rgb(252, 234, 234);
+    box-shadow: 0 0 10px 0 rgb(215, 127, 233), 0 0 10px 4px rgb(215, 127, 233);
+    color: rgb(48, 0, 82);
+}
 
 .submit_button:hover {
     border: none;
