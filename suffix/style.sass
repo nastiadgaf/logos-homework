@@ -19,44 +19,31 @@ body
     display: flex
     align-items: center
 
-#menu__toggle 
-  opacity: 0
-  position: relative
+.nav__menu 
+    display: none
 
-.menu__btn 
-    display: flex
-    align-items: center
-    position: relative
-    width: 26px
-    height: 26px
+.trigger 
+    display: inline-block
+    margin: 3px
     cursor: pointer
-    z-index: 1
-    top: -19px
 
-.menu__btn > span,
-.menu__btn > span::before,
-.menu__btn > span::after 
+.rotate 
+    transform: rotate(45deg)
+
+.line__hidden
+    display: none
+
+.trigger i 
     display: block
-    position: absolute
-    width: 100%
+    width: 24px
     height: 2px
-    background-color: #616161
-
-.menu__btn > span::before 
-    content: ''
-    top: -8px
-
-.menu__btn > span::after 
-    content: ''
-    top: 8px
-
-.menu__box 
+    margin: 4px auto
+    background: #222
+  
+.show 
     display: block
     position: fixed
-    visibility: hidden
-    margin-top: 33px
-    left: -100%
-    margin-left: 152px
+    margin-top: 35px
     width: 344px
     height: 359px
     padding: 52px 0
@@ -76,22 +63,6 @@ a:hover
     line-height: 24px
     text-decoration-line: underline
     color: #000000
-
-#menu__toggle:checked ~ .menu__btn > span 
-    transform: rotate(45deg)
-
-#menu__toggle:checked ~ .menu__btn > span::before 
-    top: 0
-    transform: rotate(0)
-
-#menu__toggle:checked ~ .menu__btn > span::after 
-    top: 0
-    transform: rotate(90deg)
-
-#menu__toggle:checked ~ .menu__box 
-    visibility: visible
-    left: 0
-
 
 .preview
     font-family: 'Kanit Medium'
@@ -179,6 +150,12 @@ a:hover
 .featured__item
     width: 557px
 
+.featured__item_m
+    display: flex
+    justify-content: end
+    align-items: end
+    flex-direction: column
+
 .featured__link
     text-decoration: underline
 
@@ -227,7 +204,7 @@ a:hover
     margin-bottom: 18px
     background-size: cover
     height: 240px
-    width: 416px
+    width: 363px
 
 .small__heading
     color: #1f1f1d
@@ -235,6 +212,9 @@ a:hover
     font-weight: 500
     text-transform: uppercase
     margin-top: 22px
+
+.small__item
+    width: 363px
 
 .button
     display: flex
@@ -312,9 +292,6 @@ a:hover
     font-size: 12px
     font-weight: 300
 
-
-
-
 @media screen and (max-width: 1240px)
     .preview__image
         width: 620px
@@ -329,10 +306,7 @@ a:hover
 
     .featured__image
         width: 455px
-        height: 302px
-
-    .featured__image_2
-        margin-left: 30px
+        height: 301px
 
     .featured__info
         width: 455px
@@ -357,19 +331,9 @@ a:hover
 
     .header
         height: 65px
-
-    .header__nav
-        margin-left: 22px
-        justify-self: start
-
-    .header__name
-        font-size: 20px
-        font-weight: 500
-
-    .header__name_weight
-        font-weight: 200
-    
+        
     .preview__image
+        width: 384px
         height: 354px
     
     .preview__menu
@@ -391,33 +355,24 @@ a:hover
         height: 40px
     
     .preview__right
+        width: 384px
         height: 354px
     
     .preview__elements
-        margin-top: 72px
-        margin-bottom: 72px
+        width: 344px
+        height: 210px
+        padding-top: 72px
         margin-left: 21px
         margin-right: 18px
-
-    .featured
-        margin-right: 24px
-        margin-left: 24px
+        margin-bottom: 72px
     
     .featured__heading
         margin-bottom: 21px
         margin-top: 60px
     
-    .featured__image_1
+    .featured__image
         width: 345px    
         height: 228px
-    
-    .featured__image_2
-        height: 228px
-        width: 345px
-        margin-left: 30px
-    
-    .featured__info_right
-        margin-left: 30px
     
     .featured__menu
         font-size: 12px
@@ -433,13 +388,14 @@ a:hover
     
     .featured__info 
         width: 345px
+        margin: 0
 
     .small
         margin-top: 36px
 
+
     .small__image
         margin-bottom: 21px
-        background-size: cover
         height: 145px
         width: 220px
 
