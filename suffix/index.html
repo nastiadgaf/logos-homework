@@ -32,7 +32,7 @@
 						</ul>
 					</nav>
 				</div>
-				<div class="col-2 offset-7 offset-sm-4">
+				<div class="col-2 offset-3 offset-sm-4">
 					<img src="img/logo.png" alt="logo" width="157" height="30" class="header__logo">
 				</div>
 			</div>
@@ -40,13 +40,11 @@
 	</header>
 
 	<main>
-		<div class="preview">
-			<div class="row">
-				<div class=" col-sm-6 col-12 no-padding">
+		<div class="preview preview__container">
+				<div class="preview__image-block">
 					<img src="img/philip-martin.png" class="preview__image"></img>
 				</div>
-				<div class=" col-sm-6 col-12 no-padding">
-					<div class="preview__right">
+					<div class="preview__right-block preview__right">
 						<div class="preview__elements">
 							<div class="preview__menu">
 								<a href="#" class="link link-white"><time class="preview__date"
@@ -61,61 +59,55 @@
 							<button class="preview__button button" type="button">Read more</button>
 						</div>
 					</div>
-				</div>
-			</div>
 		</div>
 
 
 		<section class="featured">
 			<div class="container">
 				<h2 class="featured__heading">
-					<a href="#" class="link">featured</a>
+					<div class="row"><a href="#" class="link">featured</a></div>
+					
 				</h2>
-				<div class="row">
-					<div class="col-md-6 col-12 featured__item_m">
-						<article class="featured__item featured__item_mgn">
-							<img src="img/featured_1.png" alt="feature" class="featured__image">
-							<div class="featured__info">
-								<div class="featured__menu menu">
-									<a href="#" class="link"><time class="featured__date"
-											datetime="10/10/2020">10/10/2020</time></a>
-									<a href="#" class="featured__link link">lifestyle</a>
+					<div class="featured__items">
+							<article class="featured__item featured__item_left">
+								<img src="img/featured_1.png" alt="feature" class="featured__image">
+								<div class="featured__info">
+									<div class="featured__menu menu">
+										<a href="#" class="link"><time class="featured__date" datetime="10/10/2020">10/10/2020</time></a>
+										<a href="#" class="featured__link link">lifestyle</a>
+									</div>
+									<h1 class="featured__headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+									</h1>
+									<p class="featured__text">ut aut reiciendis voluptatibus maiores alias consequatur aut
+										perferendis
+										doloribus
+										asperiores repellat.</p>
 								</div>
-								<h1 class="featured__headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-								</h1>
-								<p class="featured__text">ut aut reiciendis voluptatibus maiores alias consequatur aut
-									perferendis
-									doloribus
-									asperiores repellat.</p>
-							</div>
-						</article>
-					</div>
+							</article>
 
-					<div class="col-md-6  col-12">
-						<article class="featured__item ">
-							<img src="img/featured_2.png" alt="featured" class="featured__image">
-							<div class="featured__info featured__info_right">
-								<div class="featured__menu menu">
-									<a href="#" class="link"><time class="featured__date"
-											datetime="10/10/2020">10/10/2020</time></a>
-									<a href="#" class="featured__link link">lifestyle</a>
+							<article class="featured__item featured__item_right">
+								<img src="img/featured_2.png" alt="featured" class="featured__image">
+								<div class="featured__info featured__info_right">
+									<div class="featured__menu menu">
+										<a href="#" class="link"><time class="featured__date" datetime="10/10/2020">10/10/2020</time></a>
+										<a href="#" class="featured__link link">lifestyle</a>
+									</div>
+									<h1 class="featured__headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+									</h1>
+									<p class="featured__text">ut aut reiciendis voluptatibus maiores alias consequatur aut
+										perferendis
+										doloribus asperiores repellat.</p>
 								</div>
-								<h1 class="featured__headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-								</h1>
-								<p class="featured__text">ut aut reiciendis voluptatibus maiores alias consequatur aut
-									perferendis
-									doloribus asperiores repellat.</p>
-							</div>
-						</article>
+							</article>
 					</div>
-				</div>
+					
 			</div>
 		</section>
 
 
 		<div class="small container">
 			<div class="row">
-				<div class="col-md-4 col-sm-4 col-12 ">
+				<div class="col-md-4 col-sm-4 col-12 small__container">
 					<article class="small__item">
 						<img src="img/small_1.png" alt="image" class="small__image">
 						<div class="small__info">
@@ -130,7 +122,7 @@
 					</article>
 				</div>
 
-				<div class="col-md-4 col-sm-4 col-12">
+				<div class="col-md-4 col-sm-4 col-12 small__container">
 					<article class="small__item">
 						<img src="img/small_2.png" alt="image" class="small__image">
 						<div class="small__info">
@@ -144,7 +136,7 @@
 					</article>
 				</div>
 
-				<div class="col-md-4 col-sm-4 col-12">
+				<div class="col-md-4 col-sm-4 col-12 small__container">
 					<article class="small__item">
 						<img src="img/small_3.png" alt="image" class="small__image">
 						<div class="small__info">
@@ -183,7 +175,7 @@
 		<section class="small container">
 			<h3 class="featured__heading "><a href="#" class="link"></a></h3>
 			<div class="row">
-				<div class="col-md-4 col-12">
+				<div class="col-md-4 col-sm-4 col-12 small__container">
 					<article class="small__item">
 						<img src="img/interviews_1.png" alt="image" class="small__image">
 						<div class="small__info">
@@ -199,7 +191,7 @@
 					</article>
 				</div>
 
-				<div class="col-md-4 col-12">
+				<div class="col-md-4 col-sm-4 col-12 small__container ">
 					<article class="small__item">
 						<img src="img/interviews_2.png" alt="image" class="small__image">
 						<div class="small__info">
@@ -214,7 +206,7 @@
 					</article>
 				</div>
 
-				<div class="col-md-4 col-12">
+				<div class="col-md-4 col-sm-4 col-12 small__container">
 					<article class="small__item">
 						<img src="img/interviews_3.png" alt="image" class="small__image">
 						<div class="small__info">
@@ -238,7 +230,7 @@
 		<section class="small container">
 			<h3 class="featured__heading "><a href="#" class="link">news</a></h3>
 			<div class="row">
-				<div class="col-md-4 col-12">
+				<div class="col-md-4  col-sm-4 col-12 small__container">
 					<article class="small__item">
 						<img src="img/news_1.jpg" alt="image" class="small__image">
 						<div class="small__info">
@@ -253,7 +245,7 @@
 					</article>
 				</div>
 
-				<div class="col-md-4 col-12">
+				<div class="col-md-4 col-sm-4 col-12 small__container">
 					<article class="small__item">
 						<img src="img/news_2.jpg" alt="image" class="small__image">
 						<div class="small__info">
@@ -267,7 +259,7 @@
 					</article>
 				</div>
 
-				<div class="col-md-4 col-12">
+				<div class="col-md-4 col-sm-4 col-12 small__container">
 					<article class="small__item">
 						<img src="img/news_3.jpg" alt="image" class="small__image">
 						<div class="small__info">

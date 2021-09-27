@@ -26,43 +26,48 @@ class User {
         let userRow = document.createElement('tr');
         userRow.classList.add('tr_user');
         this.row = userRow;
+        this.fillUserRow();
+    }
 
-        let userLists = document.createElement('td');
-        userLists.classList.add('cell');
-        userLists.innerHTML = this.constructor.userList.length;
-        userRow.append(userLists);
+    fillUserRow() {
+        let tableCeils = [{
+                name: 'id',
+                value: this.constructor.userList.length
+            },
+            {
+                name: 'login',
+                value: this.login
+            },
+            {
+                name: 'password',
+                value: this.password
+            },
+            {
+                name: 'email',
+                value: this.email
+            },
+            {
+                name: 'edit',
+                value: '<button class="edit_button">Edit</button>'
+            },
+            {
+                name: 'delete',
+                value: '<button class="delete_button">Delete</button>'
+            }
+        ];
 
-        let userCell = document.createElement('td');
-        userCell.classList.add('cell');
-        userCell.textContent = this.login;
-        userRow.append(userCell);
+        let buildTableCeils = () => {
+            for (let dataObject of tableCeils) {
+                let ceil = document.createElement('td');
+                ceil.classList.add('cell');
+                ceil.dataset[dataObject.name] = '';
+                ceil.innerHTML = dataObject.value;
+                this.userRow.append(ceil);
+            }
+        }
 
-        let passwordCell = document.createElement('td');
-        passwordCell.classList.add('cell');
-        passwordCell.textContent = this.password;
-        userRow.append(passwordCell);
-
-        let emailCell = document.createElement('td');
-        emailCell.classList.add('cell');
-        emailCell.textContent = this.email;
-        userRow.append(emailCell);
-
-        let editCell = document.createElement('td');
-        let editButton = document.createElement('button');
-        editButton.classList.add('edit_button');
-        editButton.textContent = 'Edit';
-        editCell.append(editButton);
-        userRow.append(editCell);
-
-        let deleteCell = document.createElement('td');
-        let deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete_button');
-        deleteButton.textContent = 'Delete';
-        deleteCell.append(deleteButton);
-        userRow.append(deleteCell);
-
+        buildTableCeils();
         td.append(userRow);
-        submitButton.classList.add('submit_button');
     }
 
     clearInputs() {
@@ -72,7 +77,7 @@ class User {
     }
 
     checkFields() {
-        if (this.login.match(regexp) && this.password.match(regexp2) && this.email.match(regexp3)){
+        if (this.login.match(regexp) && this.password.match(regexp2) && this.email.match(regexp3)) {
             return true;
         }
     }
@@ -113,13 +118,30 @@ class User {
     }
 
     fillInputs() {
-        rowArray[0].children[1].textContent = login.value;
-        rowArray[0].children[2].textContent = password.value;
-        rowArray[0].children[3].textContent = email.value;
-        this.login = rowArray[0].children[1].textContent;
-        this.password = rowArray[0].children[2].textContent;
-        this.email = rowArray[0].children[3].textContent;
-        rowArray.splice(0,1);
+
+        let values = [{
+                outValue: login.value,
+                innerValue: this.login
+            },
+            {
+                outValue: password.value,
+                innerValue: this.password
+            },
+            {
+                outValue: email.value,
+                innerValue: this.email
+            }
+        ]
+
+        let fillOutValue = () => {
+            for (let val of values) {
+                    rowArray[0].children[i].textContent = [val.outValue];
+                    [val.innerValue] = rowArray[0].children[i].textContent;
+            }
+        }
+
+        fillOutValue();
+        rowArray.splice(0, 1);
         this.clearInputs();
 
     }
@@ -134,55 +156,49 @@ class User {
         td.removeChild(rowArray[0]);
         let row = rowArray[0];
         let id = row.children[0].textContent;
-        User.userList.splice(id,1);
-        rowArray.splice(0,1);
+        User.userList.splice(id, 1);
+        rowArray.splice(0, 1);
         console.log(rowArray);
     }
 
-    changeEditBtn(){
+    changeEditBtn() {
         editBtn.classList.remove('hide');
         submitButton.classList.add('hide');
     }
 
-    changeAddBtn(){
+    changeAddBtn() {
         submitButton.classList.remove('hide');
         editBtn.classList.add('hide');
     }
 
 }
-// function findRow(target){
-//     let row = target;
-//     let id = row.children[0].textContent;
-//     userObj = User.userList[--id];
-//     return userObj;
-// }
-
 
 document.addEventListener('click', function (e) {
+    function findRow(target){
+        let row = target;
+        let id = row.children[0].textContent;
+        userObj = User.userList[--id];
+        return userObj;
+    }
+
     if (e.target.classList.contains('submit_button')) {
         let userObj = new User(login.value, password.value, email.value);
         userObj.request();
         console.log(this.userList);
     } else if (e.target.classList.contains('edit_button')) {
-        let row = e.target.closest('tr');
-        let id = row.children[0].textContent;
-        let userObj = User.userList[--id];
+        findRow(e.target.closest('tr'));
         userObj.editUser();
         userObj.changeEditBtn();
         rowArray.push(row);
     } else if (e.target.classList.contains('delete_button')) {
-        let row = e.target.closest('tr');
-        let id = row.children[0].textContent;
-        let userObj = User.userList[--id];
+        findRow(e.target.closest('tr'));
         rowArray.push(row);
         userObj.deleteUser();
     } else if (e.target.classList.contains('edit-user_button')) {
-        let row = rowArray[0];
-        let id = row.children[0].textContent;
-        let userObj = User.userList[--id];
+        findRow(rowArray[0]);
         userObj.fillInputs();
         userObj.changeAddBtn();
-    }else if (e.target.classList.contains('close')) {
+    } else if (e.target.classList.contains('close')) {
         modal.classList.add('hide');
     } else if (e.target.classList.contains('question')) {
         modal.classList.remove('hide');

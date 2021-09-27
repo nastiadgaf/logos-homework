@@ -6,13 +6,17 @@
     font-family: 'Kanit Medium'
     src: url(fonts/Kanit-Medium.woff2)
 
+main 
+    margin: 0 auto
+
 body
     overflow-x: hidden
     font-family: 'Kanit Medium'
 
-.no-padding
-    padding: 0
-
+.container
+    width: 1141px
+    margin: 0 auto
+    box-sizing: border-box;
 .header
     width: 100%
     height: 120px
@@ -66,6 +70,19 @@ a:hover
 
 .preview
     font-family: 'Kanit Medium'
+    display: flex
+    width: 100%
+    margin: 0 auto
+
+.preview__image-block
+    width: 50%
+
+.preview__right-block
+    width: 50%
+    background-color: black
+    color: white
+    max-height: 570px
+    max-width: 720px
     
 .preview__menu
     display: flex
@@ -75,8 +92,8 @@ a:hover
     margin-bottom: 66px
     
 .preview__image
-    width: 720px
-    height: 570px
+    max-width: 720px
+    max-height: 570px
     float: right
 
 .preview__link
@@ -114,11 +131,6 @@ a:hover
     border: 1px solid #ffffff
     background-color: black
     
-.preview__right
-    background-color: black
-    color: white
-    height: 570px
-    width: 720px
     
 .preview__elements
     padding-bottom: 151px
@@ -131,6 +143,17 @@ a:hover
     justify-content: center
     flex-direction: column
     
+.featured__items
+    display: flex
+    justify-content: space-between
+    flex-direction: row
+    
+
+.featured__item_left
+    margin-right: 13.5px
+
+.featured__item_right
+    margin-left: 13.5px
 
 .featured__heading
     margin-bottom: 30px
@@ -141,21 +164,13 @@ a:hover
     text-transform: uppercase
 
 .featured__image
-    width: 557px
+    max-width: 557px
     height: 368px
 
-.featured__item_mgn
-    margin-right: 27px
-
 .featured__item
-    width: 557px
-
-.featured__item_m
-    display: flex
-    justify-content: end
-    align-items: end
-    flex-direction: column
-
+    max-width: 557px
+    padding: 0
+    
 .featured__link
     text-decoration: underline
 
@@ -202,9 +217,8 @@ a:hover
 
 .small__image
     margin-bottom: 18px
-    background-size: cover
-    height: 240px
-    width: 363px
+    max-height: 240px
+    max-width: 363px
 
 .small__heading
     color: #1f1f1d
@@ -214,7 +228,7 @@ a:hover
     margin-top: 22px
 
 .small__item
-    width: 363px
+    max-width: 363px
 
 .button
     display: flex
@@ -272,70 +286,127 @@ a:hover
     height: 163px
     margin-top: 100px
 
-.footer__name
-    letter-spacing: 4px
-    margin: 0
-    display: flex
-    text-align: center
-    font-size: 30px
-    color: white
-    font-weight: 700
+.footer__heading
+    margin-bottom: 38px
+    margin-top: 55px
 
-.footer__name_italic
-    font-style: italic
-
-.footer__name_weight
-    font-weight: 400
-
-.footer__name_text 
-    color: #ffffff
-    font-size: 12px
+.footer__text 
+    font-family: Kanit
     font-weight: 300
-
+    font-style: normal
+    font-size: 12px
+    line-height: 18px
+    text-align: center
+    color: white
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    
 @media screen and (max-width: 1240px)
-    .preview__image
-        width: 620px
-        height: 570px
+    main, .container, .preview__container 
+        max-width: 1240px
+        margin: 0 auto
 
-    .preview__right
-        width: 620px
-        height: 570px
+    .preview__image
+        max-width: 620px
+        max-height: 570px
+        min-width: 50%
+        height: 100%
+
+    .preview__right_block
+        max-width: 620px
+        max-height: 570px
+        min-width: 50%
 
     .container
-        width: 941px
+        max-width: 941px
 
     .featured__image
-        width: 455px
-        height: 301px
+        max-width: 455px
+        max-height: 301px
 
     .featured__info
-        width: 455px
-
-    .featured__info_right
-        margin-left: 30px
+        max-width: 455px
 
     .small__image
-        width: 295px
-        height: 195px
+        max-width: 295px
+        max-height: 195px
 
     .small__info   
-        width: 295px
+        max-width: 295px
+
+    .subscribe
+        margin-top: 61px
 
     .subscribe__item
-        width: 470px
-        height: 361px
+        max-width: 470px
+        max-height: 361px
+
+@media screen and (max-width: 992px)
+    main, .preview__container, .preview
+        max-width: 992px
+        margin: 0 auto
+
+    .container
+        max-width: 900px
+
+    .preview__image_block
+        max-width: 496px
+        width: 50%
+    
+    .preview__image
+        max-width: 496px
+
+    .preview__right_block
+        max-width: 496px
+        width: 50%
+
+    .preview__elements
+        padding-bottom: 110px
+        padding-left: 78px
+        padding-right: 79px
+        padding-top: 60px
+
+
+    .featured__image
+        max-width: 405px
+        max-height: 255px
+        width: 100%
+
+    .featured__info
+        max-width: 405px
+
+    .small__image
+        max-width: 275px
+        max-height: 195px
+
+    .small__info   
+        max-width: 275px
+
+    .subscribe__item
+        max-width: 450px
+        max-height: 361px
+        width: 50%
+
+    .subscribe
+        margin-top: 49px
+        width: 100%
+        max-width: 900px
 
 @media screen and (max-width: 768px)
-    .container
-        width: 720px
+    main, .container, .preview__container 
+        max-width: 720px
+        margin: 0 auto
+    
 
     .header
         height: 65px
         
     .preview__image
-        width: 384px
-        height: 354px
+        max-width: 384px
+        min-height: 354px
     
+    .preview
+        max-width: 768px
+
     .preview__menu
         font-size: 12px
         margin-bottom: 20px
@@ -353,18 +424,19 @@ a:hover
     
     .preview__button
         height: 40px
+        padding: 11px 65px
     
-    .preview__right
-        width: 384px
-        height: 354px
+    .preview__right_block
+        max-width: 383px
+        max-height: 354px
     
     .preview__elements
-        width: 344px
-        height: 210px
+        max-width: 344px
+        max-height: 354px
+        padding-bottom: 72px
+        padding-left: 21px
+        padding-right: 18px
         padding-top: 72px
-        margin-left: 21px
-        margin-right: 18px
-        margin-bottom: 72px
     
     .featured__heading
         margin-bottom: 21px
@@ -393,18 +465,17 @@ a:hover
     .small
         margin-top: 36px
 
-
     .small__image
         margin-bottom: 21px
-        height: 145px
-        width: 220px
+        max-height: 145px
+        max-width: 220px
 
     .small__heading
         font-size: 16px
         margin-top: 15px
 
     .small__info
-        width: 220px
+        max-width: 220px
 
     .link
         letter-spacing: 0
@@ -417,9 +488,11 @@ a:hover
     
     .subscribe__image
         height: 275px
+        max-width: 359px
     
     .subscribe__info
         height: 275px
+        max-width: 359px
     
     .subscribe__heading
         font-size: 18px
@@ -428,23 +501,39 @@ a:hover
         margin-top: 27px
 
     .footer
-        height: 163px
+        max-height: 163px
         margin-top: 70px
 
-@media screen and (max-width: 320px)
-    .container
-        width: 295px
-    
+@media screen and (max-width: 575px)
+    html, body, main, .preview__container, .container
+        max-width: 575px
+        margin: 0 auto
+
+    .preview
+        flex-direction: column
+        margin: 0 auto
+        width: 100%
+
     .preview__image
-        height: 294px
+        max-width: 575px
+        min-height: 300px
+        float: none
+
+    .preview__right-block
+        width: 100%
+        max-width: 575px
+    
+    .preview__elements
+        padding-bottom: 72px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 72px;
+        max-width: 500px;
     
     .preview__menu
         font-size: 12px
         letter-spacing: 6px
         margin-bottom: 20px
-    
-    .preview__link
-        display: none
     
     .preview__heading
         font-size: 18px
@@ -457,34 +546,128 @@ a:hover
     .preview__button
         height: 40px
         font-size: 12px
+
+    .featured__items
+        margin: 0 auto
+        display: flex
+        flex-direction: column
+        align-items: center
+        margin-bottom: 30px
+    
+    .featured__item
+        max-width: 560px
+        width: 100%
+        max-height: 700px
+
+    .featured__image
+        max-width: 560px    
+        width: 100%
+        height: 100%
+        max-height: 333px
+
+    .featured__info
+        width: 100%
+        height: 100%
+        max-width: 560px
+
+    .featured__item_right
+        margin: 0 auto
+    
+    .featured__item_left
+        margin: 0 auto
+
+    .featured__menu 
+        font-size: 16px
+    
+    .featured__headline 
+        font-size: 20px
+
+    .featured__text
+        font-size: 18px
+
+    .small__container
+        display: flex
+        justify-content: center
+
+    .small__item
+        max-width: 560px
+        max-height: 700px
+        width: 100%
+
+    .small__image   
+        width: 100% 
+        max-width: 560px
+        max-height: 700px
+
+    .small__info
+        max-width: 560px
+        max-height: 700px
+        width: 100%
+        margin-bottom: 30px
+
+    .small__menu 
+        font-size: 16px
+    
+    .small__headline 
+        font-size: 20px
+
+    .small__text
+        font-size: 18px
+     
+    .subscribe
+        margin-top: 30px
+        max-width: 560px
+
+    .subscribe__image, .subscribe__info 
+        width: 100%
+        max-width: 560px
+
+@media screen and (max-width: 364px)
+    .preview__elements
+        padding-bottom: 52px;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 52px;
+
+@media screen and (max-width: 320px)
+    main, body, html, .container, .preview__container 
+        max-width: 320px
+        margin: 0 auto
+
+    .preview
+        max-width: 320px
+
+    .preview__image
+        max-width: 320px
+        min-height: 294px
+        float: none
+    
+    .preview__image_block
+        min-height: 294px
+        max-width: 320px
+    
+    .preview__right-block
+        width: 100%
+
+    .preview__link
+        display: none
     
     .preview__right
         height: 246px
     
     .preview__elements
-        margin-top: 16px
-        margin-bottom: 32px
-        margin-left: 12px
-        margin-right: 13px
-
-    .featured
-        margin: 0
+        padding-top: 15px
+        padding-bottom: 32px
+        padding-left: 12px
+        padding-right: 13px
     
     .featured__heading
         margin-bottom: 21px
         margin-top: 60px
     
-    .featured__image_1
-        width: 295px
-        height: 195px
-    
-    .featured__image_2
-        width: 295px
-        height: 195px
-        margin-left: 0
-    
-    .featured__info_right
-        margin-left: 0
+    .featured__image
+        max-width: 295px
+        max-height: 195px
     
     .featured__menu
         font-size: 12px
@@ -497,22 +680,27 @@ a:hover
     .featured__info 
         width: 295px
 
-    .small
-        margin-top: 27px
-    
     .small__image
         margin-bottom: 18px
         margin-top: 22px
-        width: 295px
-        height: 195px
+        max-width: 295px
+        max-height: 195px
+
     
+
     .small__heading
         font-size: 16px
         margin-top: 15px
     
     .small__info 
-        width: 295px
+        max-width: 295px
     
+    .small__item
+        display: flex
+        align-items: center
+        justify-content: center 
+        flex-direction: column
+
     .link
         letter-spacing: none
 
@@ -521,12 +709,15 @@ a:hover
 
     .subscribe
         margin-top: 43px
+        max-width: 320px
 
     .subscribe__image 
         height: 245px
+        max-width: 320px
 
     .subscribe__info
         height: 175px
+        max-width: 320px
             
     .subscribe__heading
         font-size: 18px

@@ -1,28 +1,23 @@
 <?php
 
-$numbers = '1 2 3 4 5';
+$numbers = '3 12 3 8 5 6 7';
 $numbers2 = '1 -2 9 4 5 41';
 
-$arr = str_split($numbers);
-//$max = null;
-//$min = null;
-//$max = max($arr);
-$min = min($arr);
+$array = explode(" ", $numbers2);
+$max = $array[0];
+$min = $array[0];
+    
+    foreach($array as $i){
+        if($i > $max){
+            $max = $i;
+        }
+    }
 
-// foreach($arr as $v)
-// {
-//     if($v > $max or $max === null)
-//     {
-//         $max = $v;
-     
-//     }
+    foreach($array as $i){
+        if($i < $min){
+            $min = $i;
+        }
+    }
 
-//     if($v < $min or $min === null)
-//     {
-//         $min = $v;
-       
-//     }
-//}
-
-//print_r($max );
-print_r($min );
+print_r($min);
+print_r($max);
