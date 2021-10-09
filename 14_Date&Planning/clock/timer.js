@@ -1,4 +1,3 @@
-
 let timer = document.querySelector('#timer_time');
 let plus = document.querySelector('#plus');
 let minus = document.querySelector('#minus');
@@ -7,48 +6,75 @@ let stopTimer = document.querySelector('#stop_timer');
 let timerClock = document.querySelector('#timer_clock');
 let resetTimer = document.querySelector('#reset_timer');
 
-plus.addEventListener('click', function(){
-    timer.innerHTML++;
-})
+class Timer {
+    plusWork() {
+        timer.innerHTML++;
+    }
 
-minus.addEventListener('click', function(){
-    if(timer.innerHTML < 1){
-        minus.disable;
-    } else{
-        timer.innerHTML--;
-    }
-})
-let timerWork;
-startTimer.addEventListener('click', function(){
-    let m = timer.innerHTML;
-    let s = 0;
-    function getTimerTime(){
-        timerClock.innerHTML = m +" : " + s ;
-    if ( m == 0 && s == 0){
-            alert('timer is over');
-            clearInterval(timerWork);
-        } 
-    if(s == 0){
-        m--;
-        s = 60;
-    if (m == 0){
-        m= 0;
-    }
+    minusWork() {
+        if (timer.innerHTML < 1) {
+            minus.disable;
+        } else {
+            timer.innerHTML--;
         }
-    s--;
     }
-    if( s > 1){
-        s--;
-    }
-    timerWork = setInterval( getTimerTime ,1000);
-})
+
+    getTimerTime() {
+        this.m = timer.innerHTML;
+        this.s = 0;
+        timerClock.innerHTML = this.m + " : " + this.s;
+            if (this.m == 0 && this.s == 0) {
+                clearInterval(this.timerWork);
+            }
+            
+            if (this.s == 0) {
+                this.m--;
+                this.s = 60;
+            }
+            this.s--;
+            if (this.m == 0) {
+                this.m = 0;
+                
+            }
+
+            if (this.s > 1) {
+                this.s--;
+            }
+        
+        }
+
+        startTimerWork() {
+            this.timerWork = setInterval(() => this.getTimerTime(), 1000);
+        }
+
+        stopTimerWork() {
+            clearInterval(this.timerWork);
+        }
+
+        resetTimerWork() {
+            timerClock.innerHTML = '00:00';
+            clearInterval(this.timerWork);
+        }
+}
+
+    let newTimer = new Timer();
+    plus.addEventListener('click', function () {
+        newTimer.plusWork();
+    })
+
+    minus.addEventListener('click', function () {
+        newTimer.minusWork();
+    })
+
+    startTimer.addEventListener('click', function () {
+        newTimer.startTimerWork();
+    })
 
 
-resetTimer.addEventListener('click', function(){
-    timerClock.innerHTML = '00:00';
-    clearInterval(timerWork);
-});
+    resetTimer.addEventListener('click', function () {
+        newTimer.resetTimerWork();
+    });
 
-stopTimer.addEventListener('click', function(){
-    clearInterval(timerWork);
-});
+    stopTimer.addEventListener('click', function () {
+        newTimer.stopTimerWork();
+    });

@@ -60,14 +60,13 @@ class User {
             for (let dataObject of tableCeils) {
                 let ceil = document.createElement('td');
                 ceil.classList.add('cell');
-                ceil.dataset[dataObject.name] = '';
                 ceil.innerHTML = dataObject.value;
                 this.userRow.append(ceil);
             }
         }
 
         buildTableCeils();
-        td.append(userRow);
+        td.append(this.userRow);
     }
 
     clearInputs() {
@@ -77,29 +76,35 @@ class User {
     }
 
     checkFields() {
-        if (this.login.match(regexp) && this.password.match(regexp2) && this.email.match(regexp3)) {
-            return true;
-        }
+        return Boolean(this.login.match(regexp) && this.password.match(regexp2) && this.email.match(regexp3))
     }
 
     checkField() {
-        if (!this.login.match(regexp)) {
-            userLogin.classList.add('wrong');
-        } else {
-            userLogin.classList.remove('wrong');
+        let regs = [{
+            name: this.login,
+            reg: regexp,
+            class: userLogin
+        },
+        {
+            name: this.password,
+            reg: regexp2,
+            class: userPassword
+        },
+        {
+            name: this.email,
+            reg: regexp3,
+            class: userEmail
+        }
+    ]
+        let checkReg = () =>{
+            for(let exp of regs){
+                let isValid = exp.name.match(exp.reg);
+                let hasInvalidClass = exp.class.classList.contains('wrong');
+                if(!isValid ^ hasInvalidClass) exp.class.classList.toggle('wrong');
+            }
         }
 
-        if (!this.password.match(regexp2)) {
-            userPassword.classList.add('wrong');
-        } else {
-            userPassword.classList.remove('wrong');
-        }
-
-        if (!this.email.match(regexp3)) {
-            userEmail.classList.add('wrong');
-        } else {
-            userEmail.classList.remove('wrong');
-        }
+        checkReg();
     }
 
 
@@ -158,7 +163,6 @@ class User {
         let id = row.children[0].textContent;
         User.userList.splice(id, 1);
         rowArray.splice(0, 1);
-        console.log(rowArray);
     }
 
     changeEditBtn() {

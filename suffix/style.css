@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-  width: 1141px;
+  max-width: 1141px;
   margin: 0 auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -102,6 +102,12 @@ a:hover {
 
 .preview__image-block {
   width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 
 .preview__right-block {
@@ -127,7 +133,6 @@ a:hover {
 .preview__image {
   max-width: 720px;
   max-height: 570px;
-  float: right;
 }
 
 .preview__link {
@@ -410,15 +415,16 @@ a:hover {
 }
 
 @media screen and (max-width: 1240px) {
-  main, .container, .preview__container {
-    max-width: 1240px;
-    margin: 0 auto;
+  .preview__elements {
+    padding-bottom: 51px;
+    padding-left: 78px;
+    padding-right: 79px;
+    padding-top: 70px;
   }
   .preview__image {
     max-width: 620px;
     max-height: 570px;
     min-width: 50%;
-    height: 100%;
   }
   .preview__right_block {
     max-width: 620px;
@@ -452,13 +458,6 @@ a:hover {
 }
 
 @media screen and (max-width: 992px) {
-  main, .preview__container, .preview {
-    max-width: 992px;
-    margin: 0 auto;
-  }
-  .container {
-    max-width: 900px;
-  }
   .preview__image_block {
     max-width: 496px;
     width: 50%;
@@ -471,10 +470,10 @@ a:hover {
     width: 50%;
   }
   .preview__elements {
-    padding-bottom: 110px;
-    padding-left: 78px;
-    padding-right: 79px;
-    padding-top: 60px;
+    padding-bottom: 20px;
+    padding-left: 28px;
+    padding-right: 29px;
+    padding-top: 30px;
   }
   .featured__image {
     max-width: 405px;
@@ -504,16 +503,11 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
-  main, .container, .preview__container {
-    max-width: 720px;
-    margin: 0 auto;
-  }
   .header {
     height: 65px;
   }
   .preview__image {
     max-width: 384px;
-    min-height: 354px;
   }
   .preview {
     max-width: 768px;
@@ -554,8 +548,8 @@ a:hover {
     margin-top: 60px;
   }
   .featured__image {
-    width: 345px;
-    height: 228px;
+    max-width: 345px;
+    max-height: 228px;
   }
   .featured__menu {
     font-size: 12px;
@@ -618,22 +612,19 @@ a:hover {
 }
 
 @media screen and (max-width: 575px) {
-  html, body, main, .preview__container, .container {
-    max-width: 575px;
-    margin: 0 auto;
-  }
   .preview {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin: 0 auto;
+    width: 100%;
+  }
+  .preview__image-block {
     width: 100%;
   }
   .preview__image {
-    max-width: 575px;
-    min-height: 300px;
-    float: none;
+    max-width: 557px;
+    width: 100%;
   }
   .preview__right-block {
     width: 100%;
@@ -761,20 +752,13 @@ a:hover {
 }
 
 @media screen and (max-width: 320px) {
-  main, body, html, .container, .preview__container {
-    max-width: 320px;
-    margin: 0 auto;
-  }
   .preview {
     max-width: 320px;
   }
   .preview__image {
     max-width: 320px;
-    min-height: 294px;
-    float: none;
   }
   .preview__image_block {
-    min-height: 294px;
     max-width: 320px;
   }
   .preview__right-block {
@@ -784,7 +768,7 @@ a:hover {
     display: none;
   }
   .preview__right {
-    height: 246px;
+    max-height: 246px;
   }
   .preview__elements {
     padding-top: 15px;

@@ -9,7 +9,7 @@ class StopWatch {
     constructor(h, m, s, ms) {
         this.hours = h.toString();
         this.minutes = m.toString();
-        this.seconds = s.toString();
+        this.second = s.toString();
         this.ms = ms.toString();
     }
 
@@ -20,47 +20,54 @@ class StopWatch {
             this.second++;
             this.ms = 0;
         }
-        if (second == 60) {
-            minutes++;
-            second = 0;
+        if (this.second == 60) {
+            this.minutes++;
+            this.second = 0;
         }
-        if (minutes == 60) {
-            hours++;
-            minutes = 0;
+        if (this.minutes == 60) {
+            this.hours++;
+            this.minutes = 0;
         }
-        ms++;
-        if (hours.toString().length < 2) {
-            hours = '0' + hours;
+        this.ms++;
+
+        // let time = [this.hours, this.minutes, this.second, this.ms]
+
+        // time = time.map((val) =>{
+        //     if(val.length >= 2) return val;
+        //     val = '0' + val;
+        //     return val;
+        // });
+
+        if (this.hours.toString().length < 2) {
+            this.hours = '0' + this.hours;
         }
 
-        if (minutes.toString().length < 2) {
-            minutes = '0' + minutes;
+        if (this.minutes.toString().length < 2) {
+            this.minutes = '0' + this.minutes;
         }
-        if (second.toString().length < 2) {
-            second = '0' + second;
+        if (this.second.toString().length < 2) {
+            this.second = '0' + this.second;
         }
-
-
     }
 
     secondsWork() {
-        setInterval(this.seconds(), 10)
+        this.stopWatchWork = setInterval(() => this.seconds(), 10)
     }
 
     reset() {
         watch.innerHTML = '00:00:00:000';
         timeBlockText.textContent = '';
-        clearInterval(this.secondsWork());
-        hours = '0';
-        minutes = '0';
-        second = '0';
-        ms = '0';
+        clearInterval(this.stopWatchWork);
+        this.hours = '0';
+        this.minutes = '0';
+        this.second = '0';
+        this.ms = '0';
     }
     
     stop(){
-        clearInterval(this.secondsWork());
-        if (ms > 1) {
-            ms++;
+        clearInterval(this.stopWatchWork);
+        if (this.ms > 1) {
+            this.ms++;
         }
     }
 
@@ -71,20 +78,17 @@ class StopWatch {
 
 let stopWatch = new StopWatch(0, 0, 0, 0);
 start.addEventListener('click', function () {
-    
-    this.secondsWork();
-
+    stopWatch.secondsWork();
 });
 
 reset.addEventListener('click', function () {
-    this.reset();
-
+    stopWatch.reset();
 });
 
 stop.addEventListener('click', function () {
-    this.stop();
+    stopWatch.stop();
 });
 
 loop.addEventListener('click', function () {
-    this.loop();
+    stopWatch.loop();
 });

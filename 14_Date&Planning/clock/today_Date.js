@@ -2,65 +2,63 @@ let clock = document.querySelector('#clock');
 let date = document.querySelector('#date');
 
 class DateToday {
-    constructor(nowDate) {
-        this.time = nowDate;
-        this.nowDate = nowDate;
-    }
-
-    createDate(){
-        this.h = this.time.getHours().toString();
-        this.min = this.time.getMinutes().toString();
-        this.s = this.time.getSeconds().toString();
-        this.d = this.nowDate.getDate().toString();
-        this.m = this.nowDate.getMonth().toString();
-        this.y = this.nowDate.getFullYear().toString();
+    createDate() {
+        const now = new Date();
+        this.h = now.getHours().toString();
+        this.min = now.getMinutes().toString();
+        this.s = now.getSeconds().toString();
+        this.d = now.getDate().toString();
+        this.m = now.getMonth().toString();
+        this.y = now.getFullYear().toString();
     }
 
     getTime() {
-        let date = [{name: this.h},{name: this.min},{name: this.s}]
+        let date = [this.h, this.min, this.s]
 
-        let dateString = () =>{
-            for( let val of date){
-                if(val.name.length < 2){
-                    val.name = '0' + val.name;
-                }
-            }
+        date = date.map((val) =>{
+            if(val.length >= 2) return val;
+            val = '0' + val;
+            return val;
+        });
+
+        let clockString = '';
+
+        for (let i = 0; i < date.length; i++) {
+            clockString += date[i];
+            if(i === date.length -1) continue;
+            clockString += ':';
         }
 
-        let clockString = this.h + ':' + this.min + ':' + this.s;
 
-        if (this.h == '00' && this.min == '00' && this.s == '00') {
-            this.getTodayDate();
-        }
-
-        dateString();
         clock.textContent = clockString;
     }
 
-    getTodayDate(){
-        let daysDate = [{name: this.d},{name: this.m++}]
+    getTodayDate() {
+        let daysDate = [this.d, this.m++, this.y]
 
-        let daysDateString = () =>{
-            for( let val of daysDate){
-                if(val.name.length < 2){
-                    val.name = '0' + val.name;
-                    console.log(val.name)
-                }
-            }
-        }
+        daysDate = daysDate.map((val) =>{
+            if(val.length >= 2) return val;
+            val = '0' + val;
+            return val;
+        });
 
-        daysDateString();
-        let dateString = this.d + '.' + this.m + '.' + this.y;
+        let dateString = '';
+
+        for (let i = 0; i < daysDate.length; i++) {
+            dateString +=  daysDate[i];
+            if(i === daysDate.length -1) continue;
+            dateString += '.';
+        } 
         date.textContent = dateString;
     }
 
-    start(){
+    start() {
         this.createDate();
         this.getTodayDate();
         this.getTime();
     }
 
-    render(){
+    render() {
         this.renderTime = setInterval(() => this.start(), 1000);
     }
 }
