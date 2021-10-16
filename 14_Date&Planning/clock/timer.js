@@ -1,50 +1,68 @@
-let timer = document.querySelector('#timer_time');
-let plus = document.querySelector('#plus');
-let minus = document.querySelector('#minus');
-let startTimer = document.querySelector('#start_timer');
-let stopTimer = document.querySelector('#stop_timer');
-let timerClock = document.querySelector('#timer_clock');
-let resetTimer = document.querySelector('#reset_timer');
+let timer = document.querySelector('.timer_time');
+let plus = document.querySelector('.plus');
+let minus = document.querySelector('.minus');
+let startTimer = document.querySelector('.start_timer');
+let stopTimer = document.querySelector('.stop_timer');
+let timerClock = document.querySelector('.timer_clock');
+let resetTimer = document.querySelector('.reset_timer');
 
 class Timer {
+    constructor(){
+        this.minutes = +timer.innerHTML;
+        this.seconds = 0;
+    }
+
     plusWork() {
-        timer.innerHTML++;
+        this.minutes++;
+        timer.innerHTML = this.minutes;
+        this.updateString();
     }
 
     minusWork() {
-        if (timer.innerHTML < 1) {
+        if (this.minutes < 1) {
             minus.disable;
         } else {
-            timer.innerHTML--;
+            this.minutes--;
+            timer.innerHTML = this.minutes;
+            this.updateString();
         }
     }
 
-    getTimerTime() {
-        this.m = timer.innerHTML;
-        this.s = 0;
-        timerClock.innerHTML = this.m + " : " + this.s;
-            if (this.m == 0 && this.s == 0) {
-                clearInterval(this.timerWork);
-            }
-            
-            if (this.s == 0) {
-                this.m--;
-                this.s = 60;
-            }
-            this.s--;
-            if (this.m == 0) {
-                this.m = 0;
-                
-            }
+    updateString(){
+        if(timer.innerHTML.length < 2){
+            timer.innerHTML = `0${this.minutes}`;
+        }
+    }
 
-            if (this.s > 1) {
-                this.s--;
-            }
+    updateSecondsString(){
+        if(this.seconds.length < 2){
+            timerClock.innerHTML = `${this.minutes}:0${this.seconds}`;
+        }
+    }
+    updateTimeValue(){
+        timerClock.innerHTML = this.minutes + " : " + this.seconds;
+    }
+
+    decreaseBySecond() {
+        console.log(this.minutes)
+        console.log(this.seconds)
         
+            if (this.minutes === 0 && this.seconds === 0) {
+                clearInterval(this.timerWork);
+                this.updateTimeValue();
+            }
+            if(this.seconds === 0){
+                this.minutes = this.minutes -1;
+                this.seconds = 59;
+                this.updateTimeValue();
+            } else{
+                this.seconds = this.seconds -1;
+                this.updateTimeValue();
+            }
         }
 
         startTimerWork() {
-            this.timerWork = setInterval(() => this.getTimerTime(), 1000);
+            this.timerWork = setInterval(() => this.decreaseBySecond(), 1000);
         }
 
         stopTimerWork() {
@@ -53,28 +71,27 @@ class Timer {
 
         resetTimerWork() {
             timerClock.innerHTML = '00:00';
+            this.minutes = 0;
+            this.seconds = 0;
+            timer.innerHTML = 0;
+            this.updateTimeValue();
             clearInterval(this.timerWork);
         }
 }
 
     let newTimer = new Timer();
-    plus.addEventListener('click', function () {
+
+document.addEventListener('click', function(e){
+
+    if(e.target.classList.contains('plus')){
         newTimer.plusWork();
-    })
-
-    minus.addEventListener('click', function () {
+    } else if(e.target.classList.contains('minus')){
         newTimer.minusWork();
-    })
-
-    startTimer.addEventListener('click', function () {
-        newTimer.startTimerWork();
-    })
-
-
-    resetTimer.addEventListener('click', function () {
+    } else if(e.target.classList.contains('start_timer')){
+       newTimer.startTimerWork();
+    } else if(e.target.classList.contains('reset_timer')){
         newTimer.resetTimerWork();
-    });
-
-    stopTimer.addEventListener('click', function () {
+    } else if(e.target.classList.contains('stop_timer')){
         newTimer.stopTimerWork();
-    });
+    } 
+})
