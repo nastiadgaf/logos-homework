@@ -1,23 +1,43 @@
 <?php
-$string  = 'zzzab';
+$string  = 'bb';
 $letters = str_split($string);
 $previous = [];
-
-foreach($letters as $letter){
-    $i = $letter;
-    foreach($letters as $i){
-        if($i === $letter){
-            $letter++;
-            print_r($letter);
+$a;
+    foreach($letters as $letter){
+        $a = $letter;
+        for ($i=0; $i <= count($letters) ; $i++) { 
+            unset($letters[$i]);
+            print_r($letters);
         }
+        foreach($letters as $a){
+           if($a === $letter){
+            ++$letter;
+            array_push($previous, $letter);
+           }            
     }
-}
+
+    }
+print_r($previous);
 
 
 
 
-
-
+// $i;
+// foreach($letters as $letter){
+//     $i = $letter;
+//     print_r($i);
+//     foreach($letters as $i){
+//         if($i === $letter){
+//             ++$letter;
+//             array_push($previous, $letter);
+            
+//             // print_r($letter);
+//             break;
+//         }
+//     }
+//     $i = '';
+//     print_r($i);
+// }
 
 
 

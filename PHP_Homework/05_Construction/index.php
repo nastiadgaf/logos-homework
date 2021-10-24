@@ -19,5 +19,6 @@ $min = $array[0];
         }
     }
 
-print_r($min);
-print_r($max);
+print_r("Min:$min");
+print_r("\n");
+print_r("Max:$max");
