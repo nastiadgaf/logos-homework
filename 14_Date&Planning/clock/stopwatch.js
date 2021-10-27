@@ -72,7 +72,7 @@ class StopWatch {
     }
 
     loop(){
-        timeBlockText.textContent = timeBlockText.textContent + '' + watch.textContent;
+        timeBlockText.innerHTML = `${timeBlockText.textContent}${watch.textContent} <br>`;
     }
 }
 

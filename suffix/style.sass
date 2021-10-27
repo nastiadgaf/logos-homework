@@ -31,19 +31,25 @@ body
     margin: 3px
     cursor: pointer
 
-.rotate 
+.rotate-right
+    position: relative
+    transform: rotate(-45deg)
+    top: 6px
+
+.rotate-left
     transform: rotate(45deg)
 
-.line__hidden
-    display: none
-
-.trigger i 
+.trigger .line__vsbl
     display: block
     width: 24px
     height: 2px
     margin: 4px auto
     background: #222
+    transition: 0.3s
   
+.line__hidden
+    display: none
+
 .show 
     display: block
     position: fixed
@@ -449,7 +455,7 @@ a:hover
         font-size: 14px
     
     .featured__info 
-        width: 345px
+        max-width: 345px
         margin: 0
 
     .small
@@ -493,6 +499,20 @@ a:hover
     .footer
         max-height: 163px
         margin-top: 70px
+
+@media screen and (max-width: 685px)
+    .small__image
+        max-width: 204px 
+
+    .small__item
+        max-width: 204px 
+
+@media screen and (max-width: 660px)
+    .small__image
+        max-width: 183px 
+    
+    .small__item
+        max-width: 183px 
 
 @media screen and (max-width: 575px)
     .preview
@@ -616,6 +636,9 @@ a:hover
         padding-right: 60px;
         padding-top: 52px;
 
+    .show
+        width: 300px
+
 @media screen and (max-width: 320px)
     .preview
         max-width: 320px
@@ -658,7 +681,7 @@ a:hover
         display: none
     
     .featured__info 
-        width: 295px
+        max-width: 295px
 
     .small__image
         margin-bottom: 18px
