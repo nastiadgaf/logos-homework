@@ -102,6 +102,7 @@ a:hover
 .preview__image
     max-width: 720px
     max-height: 570px
+    object-fit: cover
 
 .preview__link
     color: #ffffff
@@ -393,6 +394,12 @@ a:hover
         width: 100%
         max-width: 900px
 
+@media screen and (max-width: 864px)
+    .small__image
+        max-width: 240px 
+
+    .small__item
+        max-width: 240px 
 @media screen and (max-width: 768px)
     .header
         height: 65px
@@ -484,11 +491,11 @@ a:hover
     
     .subscribe__image
         height: 275px
-        max-width: 359px
+        
     
     .subscribe__info
         height: 275px
-        max-width: 359px
+        
     
     .subscribe__heading
         font-size: 18px
@@ -523,7 +530,7 @@ a:hover
         width: 100%
 
     .preview__image
-        max-width: 557px
+        max-width: 575px
         width: 100%
 
     .preview__right-block

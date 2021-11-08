@@ -4,20 +4,19 @@ let date = document.querySelector('#date');
 class DateToday {
     createDate() {
         const now = new Date();
-        this.h = now.getHours().toString();
-        this.min = now.getMinutes().toString();
-        this.s = now.getSeconds().toString();
-        this.d = now.getDate().toString();
-        this.m = now.getMonth().toString();
-        this.y = now.getFullYear().toString();
+        this.hours = now.getHours().toString();
+        this.minutes = now.getMinutes().toString();
+        this.seconds = now.getSeconds().toString();
+        this.days = now.getDate().toString();
+        this.month = now.getMonth().toString();
+        this.year = now.getFullYear().toString();
     }
 
     getTime() {
-        let date = [this.h, this.min, this.s]
+        let date = [this.hours, this.minutes, this.seconds]
 
         date = date.map((val) =>{
-            if(val.length >= 2) return val;
-            val = '0' + val;
+            if(val.length < 2)  val = '0' + val;
             return val;
         });
 
@@ -33,12 +32,12 @@ class DateToday {
         clock.textContent = clockString;
     }
 
+    
     getTodayDate() {
-        let daysDate = [this.d, this.m++, this.y]
+        let daysDate = [this.days, this.month, this.year]
 
         daysDate = daysDate.map((val) =>{
-            if(val.length >= 2) return val;
-            val = '0' + val;
+            if(val.length < 2)  val = '0' + val;
             return val;
         });
 
@@ -63,6 +62,6 @@ class DateToday {
     }
 }
 
-let today = new DateToday(new Date());
+let today = new DateToday();
 today.start();
 today.render();

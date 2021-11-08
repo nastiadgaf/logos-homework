@@ -51,7 +51,7 @@ class StopWatch {
     }
 
     secondsWork() {
-        this.stopWatchWork = setInterval(() => this.seconds(), 10)
+            this.stopWatchWork = setInterval(() => this.seconds(), 10)
     }
 
     reset() {
@@ -73,12 +73,14 @@ class StopWatch {
 
     loop(){
         timeBlockText.innerHTML = `${timeBlockText.textContent}${watch.textContent} <br>`;
+        
     }
 }
 
 let stopWatch = new StopWatch(0, 0, 0, 0);
 start.addEventListener('click', function () {
     stopWatch.secondsWork();
+    start.disabled = true;
 });
 
 reset.addEventListener('click', function () {
@@ -87,6 +89,7 @@ reset.addEventListener('click', function () {
 
 stop.addEventListener('click', function () {
     stopWatch.stop();
+    start.disabled = false;
 });
 
 loop.addEventListener('click', function () {

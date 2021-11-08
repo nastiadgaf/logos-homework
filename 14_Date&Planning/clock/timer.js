@@ -19,13 +19,11 @@ class Timer {
     }
 
     minusWork() {
-        if (this.minutes < 1) {
-            minus.disable;
-        } else {
+        if (this.minutes < 1) return; 
             this.minutes--;
             timer.innerHTML = this.minutes;
             this.updateString();
-        }
+        
     }
 
     updateString(){
@@ -44,21 +42,14 @@ class Timer {
     }
 
     decreaseBySecond() {
-        console.log(this.minutes)
-        console.log(this.seconds)
-        
-            if (this.minutes === 0 && this.seconds === 0) {
-                clearInterval(this.timerWork);
-                this.updateTimeValue();
-            }
             if(this.seconds === 0){
-                this.minutes = this.minutes -1;
+                this.minutes--;
                 this.seconds = 59;
-                this.updateTimeValue();
             } else{
-                this.seconds = this.seconds -1;
-                this.updateTimeValue();
+                this.seconds --;
             }
+
+            this.updateTimeValue();
         }
 
         startTimerWork() {
@@ -83,15 +74,22 @@ class Timer {
 
 document.addEventListener('click', function(e){
 
-    if(e.target.classList.contains('plus')){
-        newTimer.plusWork();
-    } else if(e.target.classList.contains('minus')){
-        newTimer.minusWork();
-    } else if(e.target.classList.contains('start_timer')){
-       newTimer.startTimerWork();
-    } else if(e.target.classList.contains('reset_timer')){
-        newTimer.resetTimerWork();
-    } else if(e.target.classList.contains('stop_timer')){
-        newTimer.stopTimerWork();
-    } 
+    switch(e.target.classList.contains){
+        case ('plus'):
+            newTimer.plusWork();
+            break;
+        case 'minus':
+            newTimer.minusWork();
+            break;
+        case 'start_timer':
+            newTimer.startTimerWork();
+            break;
+        case 'reset_timer':
+            newTimer.resetTimerWork();
+            break;
+        case 'stop_timer':
+            newTimer.stopTimerWork();
+            break;
+    }
+
 })

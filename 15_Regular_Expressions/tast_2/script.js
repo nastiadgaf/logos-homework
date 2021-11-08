@@ -11,21 +11,22 @@ let regexp = /[a-zA-Z]{1,20}$/;
 let regexp2 = /(?=.*[0-9])(?=.*[a-z_])(?=.*[A-Z]){8,15}/g;
 let regexp3 = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
 let table = document.querySelector('.table');
+let currentRow = null;
 
 class User {
     constructor(login, password, email) {
         this.login = login;
         this.password = password;
         this.email = email;
-        User.userList.push(this);
+        this.constructor.userList.push(this);
     }
 
     static userList = [];
 
+
     createUserRow() {
         this.userRow = document.createElement('tr');
         this.userRow.classList.add('tr_user');
-        this.row = this.userRow;
         this.fillUserRow();
     }
 
@@ -78,30 +79,30 @@ class User {
 
     checkField() {
         let regs = [{
-                name: this.login,
+                value: this.login,
                 reg: regexp,
-                class: userLogin
+                element: userLogin
             },
             {
-                name: this.password,
+                value: this.password,
                 reg: regexp2,
-                class: userPassword
+                element: userPassword
             },
             {
-                name: this.email,
+                value: this.email,
                 reg: regexp3,
-                class: userEmail
+                element: userEmail
             }
         ]
-        let checkReg = () => {
             for (let exp of regs) {
-                let isValid = exp.name.match(exp.reg);
-                let hasInvalidClass = exp.class.classList.contains('wrong');
-                if (!isValid ^ hasInvalidClass) exp.class.classList.toggle('wrong');
+                let isValid = exp.value.match(exp.reg);
+                let hasInvalidClass = exp.element.classList.contains('wrong');
+                if (!isValid ^ hasInvalidClass) exp.element.classList.toggle('wrong');
             }
-        }
+    }
 
-        checkReg();
+    highlightNoValidInput(){
+        
     }
 
 
@@ -145,13 +146,13 @@ class User {
         // rowArray.splice(0, 1);
         // this.clearInputs();
 
-        rowArray[0].children[1].textContent = login.value;
-        rowArray[0].children[2].textContent = password.value;
-        rowArray[0].children[3].textContent = email.value;
-        this.login = rowArray[0].children[1].textContent;
-        this.password = rowArray[0].children[2].textContent;
-        this.email = rowArray[0].children[3].textContent;
-        rowArray = [];
+        currentRow.children[1].textContent = login.value;
+        currentRow.children[2].textContent = password.value;
+        currentRow.children[3].textContent = email.value;
+        this.login = currentRow.children[1].textContent;
+        this.password = currentRow.children[2].textContent;
+        this.email = currentRow.children[3].textContent;
+        currentRow = null;
         this.clearInputs();
 
     }
@@ -163,43 +164,37 @@ class User {
     }
 
     deleteUser() {
-        td.removeChild(rowArray[0]);
-        let row = rowArray[0];
-        let id = row.children[0].textContent;
+        td.removeChild(currentRow);
+        let id = currentRow.children[0].textContent;
         id--;
         User.userList.splice(id, 1);
-        rowArray = [];
-        this.idChange();
-    }
-
-    idChange() {
+        currentRow = null;
         for (let i = 1; i <= User.userList.length; i++) {
             let row = td.rows[i].cells[0];
             row.innerHTML = i;
         }
     }
 
-
     changeEditBtn() {
-        editBtn.classList.remove('hide');
-        submitButton.classList.add('hide');
+        editBtn.classList.remove('hidden');
+        submitButton.classList.add('hidden');
     }
 
     changeAddBtn() {
-        submitButton.classList.remove('hide');
-        editBtn.classList.add('hide');
+        submitButton.classList.remove('hidden');
+        editBtn.classList.add('hidden');
     }
 
 
 }
 
-let rowArray = [];
+
 document.addEventListener('click', function (e) {
-    function findRow(target) {
+    function getUserById(target) {
         let row = target;
+        currentRow = row;
         let id = row.children[0].textContent;
         userObj = User.userList[--id];
-        rowArray.push(row);
         return userObj;
     }
 
@@ -207,21 +202,21 @@ document.addEventListener('click', function (e) {
         let userObj = new User(login.value, password.value, email.value);
         userObj.request();
     } else if (e.target.classList.contains('edit_button')) {
-        findRow(e.target.closest('tr'));
+        getUserById(e.target.closest('tr'));
         userObj.editUser();
         userObj.changeEditBtn();
-        userObj.idChange();
+        
     } else if (e.target.classList.contains('delete_button')) {
-        findRow(e.target.closest('tr'));
+        getUserById(e.target.closest('tr'));
         userObj.deleteUser();
     } else if (e.target.classList.contains('edit-user_button')) {
-        findRow(rowArray[0]);
+        getUserById(currentRow);
         userObj.fillInputs();
         userObj.changeAddBtn();
     } else if (e.target.classList.contains('close')) {
-        modal.classList.add('hide');
+        modal.classList.add('hidden');
     } else if (e.target.classList.contains('question')) {
-        modal.classList.remove('hide');
+        modal.classList.remove('hidden');
         modal.classList.add('show');
     }
 
