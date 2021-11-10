@@ -33,8 +33,8 @@ class StopWatch {
 
         let timeArr = [this.hours, this.minutes, this.second]
 
-        timeArr = time.map((val) =>{
-            if(val.length < 2) rval = '0' + val;
+        timeArr = timeArr.map((val) =>{
+            if(val.length < 2) val = '0' + val;
             return val;
         });
 
