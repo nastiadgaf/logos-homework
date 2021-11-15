@@ -35,6 +35,23 @@ body {
           align-items: center;
 }
 
+.header__elems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header__logo-img {
+  margin: 0 auto;
+}
+
 .nav__menu {
   display: none;
 }
@@ -73,7 +90,7 @@ body {
 
 .show {
   display: block;
-  position: fixed;
+  position: absolute;
   margin-top: 35px;
   width: 344px;
   height: 359px;

@@ -2,7 +2,7 @@ let clock = document.querySelector('#clock');
 let date = document.querySelector('#date');
 
 class DateToday {
-    createDate() {
+    updateDate() {
         const now = new Date();
         this.hours = now.getHours().toString();
         this.minutes = now.getMinutes().toString();
@@ -12,49 +12,40 @@ class DateToday {
         this.year = now.getFullYear().toString();
     }
 
-    getTime() {
-        let date = [this.hours, this.minutes, this.seconds]
+    // formatNumToTwoCharStr = (val) =>{
+    //         val = String(val);
+    //         if(val.length < 2) val = '0' + val;
+    //         return val;
+    //     }
 
-        date = date.map((val) =>{
-            if(val.length < 2)  val = '0' + val;
-            return val;
-        });
+    formatNumToTwoCharStr = num => String(num).length > 1 ? String(num) : `0${String(num)}`;
 
+    createTimeString() {
+        let time = [this.hours, this.minutes, this.seconds]
+        
         let clockString = '';
 
-        for (let i = 0; i < date.length; i++) {
-            clockString += date[i];
-            if(i === date.length -1) continue;
-            clockString += ':';
+        for(let i = 0; i < time.length; i++){
+            clockString  += this.formatNumToTwoCharStr(time[i]);
+            if(i !== time - 1) clockString += " : "
         }
-
-
-        clock.textContent = clockString;
     }
-
     
-    getTodayDate() {
-        let daysDate = [this.days, this.month, this.year]
-
-        daysDate = daysDate.map((val) =>{
-            if(val.length < 2)  val = '0' + val;
-            return val;
-        });
+    createTodayDateString() {
+        let date = [this.days, this.month, this.year]
 
         let dateString = '';
 
-        for (let i = 0; i < daysDate.length; i++) {
-            dateString +=  daysDate[i];
-            if(i === daysDate.length -1) continue;
-            dateString += '.';
-        } 
-        date.textContent = dateString;
+        for(let i = 0; i < date.length; i++){
+            dateString  += this.formatNumToTwoCharStr(date[i]);
+            if(i !== date - 1) dateString += " : "
+        }
     }
 
     start() {
-        this.createDate();
-        this.getTodayDate();
-        this.getTime();
+        this.updateDate();
+        this.createTimeString();
+        this.createTodayDateString();
     }
 
     render() {

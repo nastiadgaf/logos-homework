@@ -8,51 +8,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="content_block" id="block1">
+    <div class="content_block" id="block1">
         <div id="date_now">
             <p id="date"></p>
             <p id="clock" class="date__clock"></p>
         </div>
-    </section>
+    </div>
 
-    <section class="content_block" id="block2">
+    <div class="content_block" id="block2">
         <div class="time">
             <p id="watch">00:00:00:000</p>
-            <div class="buttons">
-                <button class="button" id="start">START</button>
-                <button class="button" id="loop">LOOP</button>
-                <button class="button" id="stop">STOP</button>
-                <button class="button" id="reset">RESET</button>
-            </div>
+            <ul class="buttons">
+                <li class="item"><button class="button start" id="start">start</button></li>
+                <li class="item"><button class="button loop" id="loop">loop</button></li>
+                <li class="item"><button class="button stop" id="stop">stop</button></li>
+                <li class="item"><button class="button reset" id="reset">reset</button></li>
+            </ul>
             
         </div>
         <div class="time_block">
             <p class="time_block_text"></p>
         </div>
-    </section>
+    </div>
     
-    <section class="content_block" id="block3">
+    <div class="content_block" id="block3">
         <div class="timer">
             <p class="timer_time">00</p>
-            <p class="text">MINUTES</p>
-            <div class="buttons">
-                <button class="plus_minus plus">+</button>
-                <button class="plus_minus minus">-</button>
-            </div>
+            <span class="text">minutes</span>
+            <ul class="buttons">
+                <li class="item"><button class="plus_minus plus">+</button></li>
+                <li class="item"><button class="plus_minus minus">-</button></li>
+            </ul>
             
         </div>
 
         <div class="timer_block">
             <p class="timer_clock">00:00</p>
-            <p class="text">MINUTES</p>
-            <div class="buttons">
-                <button class="button start_timer">START</button>
-                <button class="button stop_timer">STOP</button>
-                <button class="button reset_timer">RESET</button>
-            </div>
+            <span class="text">minutes</span>
+            <ul class="buttons">
+                <li class="item"><button class="button start_timer">start</button></li>
+                <li class="item"><button class="button stop_timer">stop</button></li>
+                <li class="item"><button class="button reset_timer">reset</button></li>
+            </ul>
             
         </div>
-    </section>
+    </div>
     
     <script src="today_Date.js"></script>
     <script src="stopwatch.js"></script>

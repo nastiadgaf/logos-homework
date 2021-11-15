@@ -33,11 +33,15 @@ class Timer {
     }
 
     updateSecondsString(){
+        console.log(this.seconds)
+        typeof(this.seconds)
         if(this.seconds.length < 2){
+            
             timerClock.innerHTML = `${this.minutes}:0${this.seconds}`;
         }
     }
     updateTimeValue(){
+        this.updateSecondsString();
         timerClock.innerHTML = this.minutes + " : " + this.seconds;
     }
 
@@ -50,6 +54,7 @@ class Timer {
             }
 
             this.updateTimeValue();
+            
         }
 
         startTimerWork() {
@@ -73,23 +78,24 @@ class Timer {
     let newTimer = new Timer();
 
 document.addEventListener('click', function(e){
-
-    switch(e.target.classList.contains){
-        case ('plus'):
+    function checkClassName(name){
+        return e.target.classList.contains(name);
+    }
+    switch(true){
+        case checkClassName('plus'):
             newTimer.plusWork();
             break;
-        case 'minus':
+        case checkClassName('minus'):
             newTimer.minusWork();
             break;
-        case 'start_timer':
+        case checkClassName('start_timer'):
             newTimer.startTimerWork();
             break;
-        case 'reset_timer':
+        case checkClassName('reset_timer'):
             newTimer.resetTimerWork();
             break;
-        case 'stop_timer':
+        case checkClassName('stop_timer'):
             newTimer.stopTimerWork();
             break;
     }
-
 })

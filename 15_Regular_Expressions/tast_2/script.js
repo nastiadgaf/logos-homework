@@ -23,6 +23,22 @@ class User {
 
     static userList = [];
 
+    regs = [{
+            value: login.value,
+            reg: regexp,
+            element: userLogin
+        },
+        {
+            value: password.value,
+            reg: regexp2,
+            element: userPassword
+        },
+        {
+            value: email.value,
+            reg: regexp3,
+            element: userEmail
+        }
+    ]
 
     createUserRow() {
         this.userRow = document.createElement('tr');
@@ -77,34 +93,14 @@ class User {
         return Boolean(this.login.match(regexp) && this.password.match(regexp2) && this.email.match(regexp3))
     }
 
+
     checkField() {
-        let regs = [{
-                value: this.login,
-                reg: regexp,
-                element: userLogin
-            },
-            {
-                value: this.password,
-                reg: regexp2,
-                element: userPassword
-            },
-            {
-                value: this.email,
-                reg: regexp3,
-                element: userEmail
-            }
-        ]
-            for (let exp of regs) {
-                let isValid = exp.value.match(exp.reg);
-                let hasInvalidClass = exp.element.classList.contains('wrong');
-                if (!isValid ^ hasInvalidClass) exp.element.classList.toggle('wrong');
-            }
+        for (let exp of this.regs) {
+            let isValid = exp.value.match(exp.reg);
+            let hasInvalidClass = exp.element.classList.contains('wrong');
+            if (!isValid ^ hasInvalidClass) exp.element.classList.toggle('wrong');
+        }
     }
-
-    highlightNoValidInput(){
-        
-    }
-
 
     request() {
         this.checkField();
@@ -117,6 +113,14 @@ class User {
             User.userList.pop(this);
             question.classList.remove('question_hide');
             question.classList.add('question_show');
+        }
+    }
+
+    checkEditField() {
+        this.checkField()
+        this.checkFields()
+        if (this.checkFields()) {
+            this.fillInputs();
         }
     }
 
@@ -136,15 +140,13 @@ class User {
         //     }
         // ]
         // for (let val of values) {
-        //     for (let i = 1; i <= 4; i++) {
-        //         rowArray[0].children[i].textContent = [val.outValue];
-        //         [val.innerValue] = rowArray[0].children[i].textContent;
+        //     for (let i = 1; i <= 3; i++) {
+        //         currentRow.children[i].textContent = val.outValue;
+        //         val.innerValue = currentRow.children[i].textContent;
         //     }
-
         // }
 
-        // rowArray.splice(0, 1);
-        // this.clearInputs();
+
 
         currentRow.children[1].textContent = login.value;
         currentRow.children[2].textContent = password.value;
@@ -198,26 +200,37 @@ document.addEventListener('click', function (e) {
         return userObj;
     }
 
-    if (e.target.classList.contains('submit_button')) {
-        let userObj = new User(login.value, password.value, email.value);
-        userObj.request();
-    } else if (e.target.classList.contains('edit_button')) {
-        getUserById(e.target.closest('tr'));
-        userObj.editUser();
-        userObj.changeEditBtn();
-        
-    } else if (e.target.classList.contains('delete_button')) {
-        getUserById(e.target.closest('tr'));
-        userObj.deleteUser();
-    } else if (e.target.classList.contains('edit-user_button')) {
-        getUserById(currentRow);
-        userObj.fillInputs();
-        userObj.changeAddBtn();
-    } else if (e.target.classList.contains('close')) {
-        modal.classList.add('hidden');
-    } else if (e.target.classList.contains('question')) {
-        modal.classList.remove('hidden');
-        modal.classList.add('show');
+    function checkClassName(name) {
+        return e.target.classList.contains(name);
     }
+
+    switch (true) {
+        case checkClassName('submit_button'):
+            let userObj = new User(login.value, password.value, email.value);
+            userObj.request();
+            break;
+        case checkClassName('edit_button'):
+            getUserById(e.target.closest('tr'));
+            userObj.editUser();
+            userObj.changeEditBtn();
+            break;
+        case checkClassName('delete_button'):
+            getUserById(e.target.closest('tr'));
+            userObj.deleteUser();
+            break;
+        case checkClassName('edit-user_button'):
+            getUserById(currentRow);
+            userObj.checkEditField();
+            userObj.changeAddBtn();
+            break;
+        case checkClassName('close'):
+            modal.classList.add('hidden');
+            break;
+        case checkClassName('question'):
+            modal.classList.remove('hidden');
+            modal.classList.add('show');
+            break;
+    }
+
 
 });

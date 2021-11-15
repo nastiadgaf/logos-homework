@@ -1,8 +1,8 @@
 let watch = document.querySelector('#watch');
-let start = document.querySelector('#start');
-let loop = document.querySelector('#loop');
-let stop = document.querySelector('#stop');
-let reset = document.querySelector('#reset');
+let start = document.querySelector('.start');
+let loop = document.querySelector('.loop');
+let stop = document.querySelector('.stop');
+let reset = document.querySelector('.reset');
 let timeBlockText = document.querySelector('.time_block_text');
 let timeBlock = document.querySelector(".time_block");
 let loopTextAmount = 0;
@@ -31,23 +31,20 @@ class StopWatch {
         }
         this.ms++;
 
-        let timeArr = [this.hours, this.minutes, this.second]
+        const timeValues = [this.hours, this.minutes, this.second, this.ms]
+        //const formatNumToTwoCharStr = num => String(num).length > 1 ? String(num) : `0${String(num)}`;
+        let timeString;
 
-        timeArr = timeArr.map((val) =>{
+        const formatNumToTwoCharStr = (val) =>{
+            val = String(val);
             if(val.length < 2) val = '0' + val;
             return val;
-        });
+        }
 
-        // if (this.hours.toString().length < 2) {
-        //     this.hours = '0' + this.hours;
-        // }
-
-        // if (this.minutes.toString().length < 2) {
-        //     this.minutes = '0' + this.minutes;
-        // }
-        // if (this.second.toString().length < 2) {
-        //     this.second = '0' + this.second;
-        // }
+        for(let i = 0; i < timeValues.length; i++){
+            timeString  += formatNumToTwoCharStr(timeValues[i]);
+            if(i !== timeValues - 1) timeString += " : "
+        }
     }
 
     secondsWork() {
@@ -56,7 +53,7 @@ class StopWatch {
 
     reset() {
         watch.innerHTML = '00:00:00:000';
-        this.cleanLoopBlock();
+        this.resetLoopBlock();
         clearInterval(this.stopWatchWork);
         this.hours = '0';
         this.minutes = '0';
@@ -81,7 +78,11 @@ class StopWatch {
     }
 
     cleanLoopBlock() {
-        while (timeBlock.firstChild) {
+        timeBlock.removeChild(timeBlock[0])
+    }
+
+    resetLoopBlock(){
+        while(timeBlock.firstChild){
             timeBlock.removeChild(timeBlock.firstChild);
         }
     }
@@ -89,27 +90,31 @@ class StopWatch {
     cleanLoopBlockByNumber() {
         if (loopTextAmount === 5) {
             this.cleanLoopBlock();
-            loopTextAmount = 0;
         }
     }
 
 }
 
 let stopWatch = new StopWatch(0, 0, 0, 0);
-start.addEventListener('click', function () {
-    stopWatch.secondsWork();
-    start.disabled = true;
-});
 
-reset.addEventListener('click', function () {
-    stopWatch.reset();
-});
-
-stop.addEventListener('click', function () {
-    stopWatch.stop();
-    start.disabled = false;
-});
-
-loop.addEventListener('click', function () {
-    stopWatch.loop();
-});
+document.addEventListener('click', function(e){
+    function checkClassName(name){
+        return e.target.classList.contains(name);
+    }
+    switch(true){
+        case checkClassName('start'):
+            stopWatch.secondsWork();
+            start.disabled = true;
+            break;
+        case checkClassName('reset'):
+            stopWatch.reset();
+            break;
+        case checkClassName('stop'):
+            stopWatch.stop();
+            start.disabled = false;
+            break;
+        case checkClassName('loop'):
+            stopWatch.loop();
+            break;
+    }
+})
